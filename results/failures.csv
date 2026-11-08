@@ -1,0 +1,15 @@
+checker,pipeline_id,run,bug_id,category,failure_type,finding_categories,bug_description
+agent,pipeline_07,run_1,obo_drops_last_item,off_by_one,detected_wrong_category,phq9:missing_data,"Loop over items stops one short, so the last item is always treated as missing (and totals get prorated)."
+agent,pipeline_13,run_1,items_phq9_duplicate_item,item_set,detected_wrong_category,phq9:missing_data,Copy-paste error: PHQ-9 item 8 is listed twice and item 9 is never used in the total.
+rule_based,pipeline_03,run_1,rev_wrong_formula,reverse_coding,detected_wrong_category,rses:other,Reverse-coding formula uses 4 - x (right for a 1-4 scale) on 0-3 answers.
+rule_based,pipeline_04,run_1,obo_one_based_coding,off_by_one,detected_wrong_category,phq9:other;phq9:cutoff_bands;gad7:other;gad7:cutoff_bands;rses:other,Answers are shifted to 1-4 coding (every answer gets +1) before scoring.
+rule_based,pipeline_05,run_1,items_phq9_includes_difficulty,item_set,detected_wrong_category,phq9:missing_data;phq9:missing_data;phq9:other;phq9:cutoff_bands,The unscored PHQ-9 'difficulty' question is added into the PHQ-9 total.
+rule_based,pipeline_07,run_1,obo_drops_last_item,off_by_one,detected_wrong_category,phq9:missing_data;phq9:missing_data;gad7:missing_data;gad7:missing_data;rses:missing_data;rses:missing_data,"Loop over items stops one short, so the last item is always treated as missing (and totals get prorated)."
+rule_based,pipeline_09,run_1,miss_bankers_rounding,missing_data,missed,,"Prorated totals use Python's round(), which rounds .5 to the nearest even number instead of up."
+rule_based,pipeline_13,run_1,items_phq9_duplicate_item,item_set,detected_wrong_category,phq9:missing_data;phq9:missing_data;phq9:missing_data,Copy-paste error: PHQ-9 item 8 is listed twice and item 9 is never used in the total.
+rule_based,pipeline_14,run_1,rev_wrong_item_order,reverse_coding,missed,,"RSES reverse list copied from a version with a different item order (2, 5, 6, 8, 9 instead of 3, 5, 8, 9, 10)."
+rule_based,pipeline_17,run_1,obo_self_harm_item,off_by_one,missed,,Self-harm flag reads PHQ-9 item 8 instead of item 9.
+rule_based,pipeline_18,run_1,miss_no_scaling,missing_data,missed,,"When 1 item is missing, the answered items are summed but not scaled up to the full item count."
+rule_based,pipeline_19,run_1,items_gad7_missing_item,item_set,detected_wrong_category,gad7:missing_data;gad7:missing_data,GAD-7 total uses only items 1-6; item 7 is left out.
+rule_based,pipeline_20,run_1,rev_missing_item,reverse_coding,missed,,RSES item 10 is left out of the reverse-coded item list.
+rule_based,pipeline_21,run_1,rev_all_items,reverse_coding,missed,,"Every RSES item is reverse-coded, not just the 5 negative items."

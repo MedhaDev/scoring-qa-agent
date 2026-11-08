@@ -1,0 +1,16 @@
+checker,instrument,rule,correct
+agent,gad7,band_starts,0.7727272727272727
+agent,gad7,half_rounding,1.0
+agent,gad7,max_missing_items,1.0
+agent,gad7,n_items,1.0
+agent,gad7,reverse_items,1.0
+agent,phq9,band_starts,0.7727272727272727
+agent,phq9,half_rounding,1.0
+agent,phq9,max_missing_items,1.0
+agent,phq9,n_items,1.0
+agent,phq9,reverse_items,1.0
+agent,rses,band_starts,1.0
+agent,rses,half_rounding,1.0
+agent,rses,max_missing_items,1.0
+agent,rses,n_items,1.0
+agent,rses,reverse_items,1.0

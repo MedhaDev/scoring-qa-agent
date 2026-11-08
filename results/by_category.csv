@@ -1,0 +1,11 @@
+checker,category,runs,detection_rate,diagnosis_rate
+agent,cutoff_bands,4,1.0,1.0
+agent,item_set,3,1.0,0.6666666666666666
+agent,missing_data,4,1.0,1.0
+agent,off_by_one,3,1.0,0.6666666666666666
+agent,reverse_coding,4,1.0,1.0
+rule_based,cutoff_bands,4,1.0,1.0
+rule_based,item_set,3,1.0,0.0
+rule_based,missing_data,4,0.5,0.5
+rule_based,off_by_one,3,0.6666666666666666,0.0
+rule_based,reverse_coding,4,0.25,0.0
