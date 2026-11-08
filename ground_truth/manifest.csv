@@ -1,0 +1,23 @@
+pipeline_id,bug_id,has_bug,category,accepted_categories,instruments,description
+pipeline_01,clean_4,False,none,,,No bug. Identical to the reference pipeline.
+pipeline_02,miss_lenient_threshold,True,missing_data,missing_data,phq9;gad7;rses,Totals are prorated with up to 2 missing items instead of at most 1.
+pipeline_03,rev_wrong_formula,True,reverse_coding,reverse_coding,rses,Reverse-coding formula uses 4 - x (right for a 1-4 scale) on 0-3 answers.
+pipeline_04,obo_one_based_coding,True,off_by_one,off_by_one,phq9;gad7;rses,Answers are shifted to 1-4 coding (every answer gets +1) before scoring.
+pipeline_05,items_phq9_includes_difficulty,True,item_set,item_set,phq9,The unscored PHQ-9 'difficulty' question is added into the PHQ-9 total.
+pipeline_06,cut_gad7_severe_start,True,cutoff_bands,cutoff_bands,gad7,GAD-7 'severe' starts at 16 instead of 15.
+pipeline_07,obo_drops_last_item,True,off_by_one,off_by_one;item_set,phq9;gad7;rses,"Loop over items stops one short, so the last item is always treated as missing (and totals get prorated)."
+pipeline_08,clean_2,False,none,,,No bug. Identical to the reference pipeline.
+pipeline_09,miss_bankers_rounding,True,missing_data,missing_data,phq9;gad7;rses,"Prorated totals use Python's round(), which rounds .5 to the nearest even number instead of up."
+pipeline_10,cut_phq9_missing_band,True,cutoff_bands,cutoff_bands,phq9,PHQ-9 'moderately severe' band is missing; scores 15-27 are all labelled 'severe'.
+pipeline_11,clean_1,False,none,,,No bug. Identical to the reference pipeline.
+pipeline_12,cut_gad7_unofficial_bands,True,cutoff_bands,cutoff_bands,gad7,"GAD-7 bands copied from an unofficial score sheet (0-5 mild, 6-10 moderate, 11-15 moderately severe, 16-21 severe)."
+pipeline_13,items_phq9_duplicate_item,True,item_set,item_set,phq9,Copy-paste error: PHQ-9 item 8 is listed twice and item 9 is never used in the total.
+pipeline_14,rev_wrong_item_order,True,reverse_coding,reverse_coding,rses,"RSES reverse list copied from a version with a different item order (2, 5, 6, 8, 9 instead of 3, 5, 8, 9, 10)."
+pipeline_15,cut_phq9_boundary,True,cutoff_bands,cutoff_bands,phq9,PHQ-9 score of 10 is labelled 'mild' instead of 'moderate' (mild band set to 5-10).
+pipeline_16,miss_as_zero,True,missing_data,missing_data,phq9;gad7;rses,The missing code -9 is turned into a 0 answer instead of being treated as missing.
+pipeline_17,obo_self_harm_item,True,off_by_one,off_by_one;item_set,phq9,Self-harm flag reads PHQ-9 item 8 instead of item 9.
+pipeline_18,miss_no_scaling,True,missing_data,missing_data,phq9;gad7;rses,"When 1 item is missing, the answered items are summed but not scaled up to the full item count."
+pipeline_19,items_gad7_missing_item,True,item_set,item_set,gad7,GAD-7 total uses only items 1-6; item 7 is left out.
+pipeline_20,rev_missing_item,True,reverse_coding,reverse_coding,rses,RSES item 10 is left out of the reverse-coded item list.
+pipeline_21,rev_all_items,True,reverse_coding,reverse_coding,rses,"Every RSES item is reverse-coded, not just the 5 negative items."
+pipeline_22,clean_3,False,none,,,No bug. Identical to the reference pipeline.
