@@ -1,0 +1,84 @@
+# Scoring spec: GAD-7 (Generalized Anxiety Disorder-7)
+# Every rule has a "basis": official (from a listed source) or project_convention
+# (a choice this project made because the official sources are silent).
+
+instrument: gad7
+full_name: Generalized Anxiety Disorder-7
+measures: anxiety symptom severity
+
+sources:
+  phq_manual: >
+    Kroenke K, Spitzer RL, Williams JBW. Instruction Manual: Instructions for
+    Patient Health Questionnaire (PHQ) and GAD-7 Measures.
+    https://case.edu/medicine/wellness-pathway/sites/default/files/2018-05/instructions.pdf
+  phq_screeners: https://www.phqscreeners.com/select-screener
+
+usage_terms:
+  text: Public domain. No permission required to reproduce, translate, display or distribute.
+  basis: official
+  source: phq_manual
+
+items:
+  columns: [gad7_1, gad7_2, gad7_3, gad7_4, gad7_5, gad7_6, gad7_7]
+  valid_values: [0, 1, 2, 3]
+  value_labels:
+    0: Not at all
+    1: Several days
+    2: More than half the days
+    3: Nearly every day
+  basis: official
+  source: phq_manual
+
+reverse_items:
+  items: []
+  note: GAD-7 has no reverse-coded items.
+  basis: official
+  source: phq_manual
+
+missing_data:
+  missing_code: -9
+  blank_is_missing: true
+  invalid_values_are_missing: true   # any value not in valid_values and not -9
+  max_missing_items: 1
+  method: >
+    If 0 items are missing, total = sum of the 7 items.
+    If exactly 1 item is missing, prorate: total = sum of answered items * 7 / number answered,
+    then round to the nearest whole number, with exact .5 rounded UP (e.g. 10.5 -> 11).
+    If 2 or more items are missing, total, band, and prorated are left blank.
+  basis: project_convention
+  note: The official manual gives no missing-data rule. "At most 1 missing" follows common practice in published studies.
+
+total:
+  range: [0, 21]
+  basis: official
+  source: phq_manual
+
+bands:
+  levels:
+    - {min: 0,  max: 4,  label: minimal, basis: project_convention, note: "The manual does not name the band below 5; 'minimal' matches PHQ-9 wording."}
+    - {min: 5,  max: 9,  label: mild,     basis: official, source: phq_manual}
+    - {min: 10, max: 14, label: moderate, basis: official, source: phq_manual}
+    - {min: 15, max: 21, label: severe,   basis: official, source: phq_manual}
+
+outputs:
+  - {column: respondent_id, meaning: copied from the raw data}
+  - {column: gad7_total,    meaning: "whole number 0-21, or blank"}
+  - {column: gad7_band,     meaning: "label from bands, or blank"}
+  - {column: gad7_prorated, meaning: "true if exactly 1 item was missing and the total was prorated; blank if total is blank; otherwise false"}
+
+worked_examples:
+  - name: complete, lands exactly on the mild cutoff
+    items: [1, 1, 1, 1, 1, 0, 0]
+    expected: {total: 5, band: mild, prorated: false}
+  - name: one missing, prorated 10.5 rounds up to 11 (Python's round() would give 10)
+    items: [2, 1, 2, 1, 2, 1, -9]
+    expected: {total: 11, band: moderate, prorated: true}
+  - name: two missing, no total
+    items: [0, 0, -9, -9, 1, 0, 0]
+    expected: {total: null, band: null, prorated: null}
+  - name: lands exactly on the severe cutoff
+    items: [3, 2, 2, 2, 2, 2, 2]
+    expected: {total: 15, band: severe, prorated: false}
+  - name: minimum score
+    items: [0, 0, 0, 0, 0, 0, 0]
+    expected: {total: 0, band: minimal, prorated: false}

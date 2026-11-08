@@ -1,0 +1,92 @@
+# Scoring spec: RSES (Rosenberg Self-Esteem Scale)
+# Every rule has a "basis": official (from a listed source) or project_convention
+# (a choice this project made because the official sources are silent).
+
+instrument: rses
+full_name: Rosenberg Self-Esteem Scale
+measures: global self-esteem
+
+sources:
+  umd_scoring: https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale
+  umd_main: https://socy.umd.edu/about-us/rosenberg-self-esteem-scale
+  rosenberg_1965: Rosenberg M. 1965. Society and the Adolescent Self-Image. Princeton University Press.
+
+usage_terms:
+  text: Public domain. May be used without charge and without notifying the UMD Sociology Department.
+  basis: official
+  source: umd_main
+
+item_order:
+  note: >
+    Items are numbered in the order of the UMD scale sheet. Other websites number the same
+    10 statements differently, which is why their reverse-item lists (often 2, 5, 6, 8, 9)
+    differ from the UMD list below. Always pair the reverse-item list with this item order.
+  basis: official
+  source: umd_scoring
+
+items:
+  columns: [rses_1, rses_2, rses_3, rses_4, rses_5, rses_6, rses_7, rses_8, rses_9, rses_10]
+  valid_values: [0, 1, 2, 3]
+  value_labels:
+    0: Strongly Disagree
+    1: Disagree
+    2: Agree
+    3: Strongly Agree
+  basis: project_convention
+  note: How raw answers are stored in this project's data. The 4 answer options themselves are official.
+
+reverse_items:
+  items: [3, 5, 8, 9, 10]
+  formula: "item score = 3 - raw answer"
+  non_reversed_formula: "item score = raw answer (items 1, 2, 4, 6, 7)"
+  basis: official
+  source: umd_scoring
+  note: Matches UMD scoring (Strongly Agree = 3 on positive items, Strongly Agree = 0 on reversed items).
+
+missing_data:
+  missing_code: -9
+  blank_is_missing: true
+  invalid_values_are_missing: true   # any value not in valid_values and not -9
+  max_missing_items: 1
+  method: >
+    Reverse-code first, then:
+    If 0 items are missing, total = sum of the 10 item scores.
+    If exactly 1 item is missing, prorate: total = sum of answered item scores * 10 / number answered,
+    then round to the nearest whole number, with exact .5 rounded UP.
+    If 2 or more items are missing, total and prorated are left blank.
+  basis: project_convention
+  note: UMD gives no missing-data rule. Same rule as PHQ-9 and GAD-7 for consistency.
+
+total:
+  range: [0, 30]
+  higher_means: higher self-esteem
+  basis: official
+  source: umd_scoring
+
+bands:
+  none: true
+  note: UMD states there are no official cutoffs, so this scale has no band column.
+  basis: official
+  source: umd_scoring
+
+outputs:
+  - {column: respondent_id, meaning: copied from the raw data}
+  - {column: rses_total,    meaning: "whole number 0-30, or blank"}
+  - {column: rses_prorated, meaning: "true if exactly 1 item was missing and the total was prorated; blank if total is blank; otherwise false"}
+
+worked_examples:
+  - name: strongly agrees with everything (reversed items cancel out)
+    items: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+    expected: {total: 15, prorated: false}
+  - name: highest possible self-esteem
+    items: [3, 3, 0, 3, 0, 3, 3, 0, 0, 0]
+    expected: {total: 30, prorated: false}
+  - name: mixed answers
+    items: [2, 2, 1, 2, 0, 2, 2, 1, 1, 0]
+    expected: {total: 22, prorated: false}
+  - name: one missing, prorated 19 * 10 / 9 = 21.1 rounds to 21
+    items: [2, 2, 1, 2, -9, 2, 2, 1, 1, 0]
+    expected: {total: 21, prorated: true}
+  - name: two missing, no total
+    items: [2, -9, 1, 2, 0, 2, -9, 1, 1, 0]
+    expected: {total: null, prorated: null}

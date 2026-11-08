@@ -1,0 +1,101 @@
+# Scoring spec: PHQ-9 (Patient Health Questionnaire-9)
+# Every rule has a "basis": official (from a listed source) or project_convention
+# (a choice this project made because the official sources are silent).
+
+instrument: phq9
+full_name: Patient Health Questionnaire-9
+measures: depressive symptom severity
+
+sources:
+  phq_manual: >
+    Kroenke K, Spitzer RL, Williams JBW. Instruction Manual: Instructions for
+    Patient Health Questionnaire (PHQ) and GAD-7 Measures.
+    https://case.edu/medicine/wellness-pathway/sites/default/files/2018-05/instructions.pdf
+  phq_screeners: https://www.phqscreeners.com/select-screener
+
+usage_terms:
+  text: Public domain. No permission required to reproduce, translate, display or distribute.
+  basis: official
+  source: phq_manual
+
+items:
+  columns: [phq9_1, phq9_2, phq9_3, phq9_4, phq9_5, phq9_6, phq9_7, phq9_8, phq9_9]
+  valid_values: [0, 1, 2, 3]
+  value_labels:
+    0: Not at all
+    1: Several days
+    2: More than half the days
+    3: Nearly every day
+  basis: official
+  source: phq_manual
+
+not_scored:
+  columns: [phq9_difficulty]
+  note: The "how difficult have these problems made it..." question is never added to the total.
+  basis: official
+  source: phq_manual
+
+reverse_items:
+  items: []
+  note: PHQ-9 has no reverse-coded items.
+  basis: official
+  source: phq_manual
+
+missing_data:
+  missing_code: -9
+  blank_is_missing: true
+  invalid_values_are_missing: true   # any value not in valid_values and not -9
+  max_missing_items: 1
+  method: >
+    If 0 items are missing, total = sum of the 9 items.
+    If exactly 1 item is missing, prorate: total = sum of answered items * 9 / number answered,
+    then round to the nearest whole number, with exact .5 rounded UP (e.g. 4.5 -> 5).
+    If 2 or more items are missing, total, band, and prorated are left blank.
+  basis: project_convention
+  note: The official manual gives no missing-data rule. "At most 1 missing" follows common practice in published studies.
+
+total:
+  range: [0, 27]
+  basis: official
+  source: phq_manual
+
+bands:
+  basis: official
+  source: phq_manual
+  levels:
+    - {min: 0,  max: 4,  label: none-minimal}
+    - {min: 5,  max: 9,  label: mild}
+    - {min: 10, max: 14, label: moderate}
+    - {min: 15, max: 19, label: moderately severe}
+    - {min: 20, max: 27, label: severe}
+
+self_harm_flag:
+  rule: >
+    true if phq9_9 is 1, 2, or 3; false if phq9_9 is 0;
+    blank if phq9_9 is missing (the flag is never prorated).
+  basis: project_convention
+  note: The manual stresses that any positive answer to item 9 needs follow-up; the flag column is this project's way of recording that.
+
+outputs:
+  - {column: respondent_id,       meaning: copied from the raw data}
+  - {column: phq9_total,          meaning: "whole number 0-27, or blank"}
+  - {column: phq9_band,           meaning: "label from bands, or blank"}
+  - {column: phq9_prorated,       meaning: "true if exactly 1 item was missing and the total was prorated; blank if total is blank; otherwise false"}
+  - {column: phq9_self_harm_flag, meaning: "true / false / blank, see self_harm_flag"}
+
+worked_examples:
+  - name: complete, lands exactly on the moderate cutoff
+    items: [1, 2, 0, 1, 3, 0, 1, 2, 0]
+    expected: {total: 10, band: moderate, prorated: false, self_harm_flag: false}
+  - name: one missing, prorated 4.5 rounds up to 5 (mild, not none-minimal)
+    items: [0, 1, 0, 1, -9, 0, 1, 1, 0]
+    expected: {total: 5, band: mild, prorated: true, self_harm_flag: false}
+  - name: two missing, no total
+    items: [3, 3, 2, -9, 2, -9, 3, 1, 1]
+    expected: {total: null, band: null, prorated: null, self_harm_flag: true}
+  - name: maximum score
+    items: [3, 3, 3, 3, 3, 3, 3, 3, 3]
+    expected: {total: 27, band: severe, prorated: false, self_harm_flag: true}
+  - name: top of moderately severe
+    items: [2, 2, 2, 2, 2, 2, 2, 3, 2]
+    expected: {total: 19, band: moderately severe, prorated: false, self_harm_flag: true}
