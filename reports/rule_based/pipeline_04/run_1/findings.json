@@ -1,0 +1,50 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "category": "other",
+      "columns": "phq9_total",
+      "description": "total outside the allowed range 0-27",
+      "evidence": "Example respondents: R0069, R0082, R0131, R0137, R0155",
+      "rows_affected": 22,
+      "confirmed": true
+    },
+    {
+      "instrument": "phq9",
+      "category": "cutoff_bands",
+      "columns": "phq9_band",
+      "description": "severity label does not match the total",
+      "evidence": "Example respondents: R0069, R0082, R0131, R0137, R0155",
+      "rows_affected": 22,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "other",
+      "columns": "gad7_total",
+      "description": "total outside the allowed range 0-21",
+      "evidence": "Example respondents: R0021, R0083, R0117, R0169, R0206",
+      "rows_affected": 19,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "cutoff_bands",
+      "columns": "gad7_band",
+      "description": "severity label does not match the total",
+      "evidence": "Example respondents: R0021, R0083, R0117, R0169, R0206",
+      "rows_affected": 19,
+      "confirmed": true
+    },
+    {
+      "instrument": "rses",
+      "category": "other",
+      "columns": "rses_total",
+      "description": "total outside the allowed range 0-30",
+      "evidence": "Example respondents: R0047, R0280, R0483",
+      "rows_affected": 3,
+      "confirmed": true
+    }
+  ]
+}

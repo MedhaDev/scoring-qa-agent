@@ -1,0 +1,32 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "category": "missing_data",
+      "columns": "phq9_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0032, R0123, R0143, R0251, R0324",
+      "rows_affected": 10,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "missing_data",
+      "columns": "gad7_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0037, R0048, R0120, R0138, R0193",
+      "rows_affected": 11,
+      "confirmed": true
+    },
+    {
+      "instrument": "rses",
+      "category": "missing_data",
+      "columns": "rses_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0024, R0095, R0122, R0157, R0177",
+      "rows_affected": 13,
+      "confirmed": true
+    }
+  ]
+}

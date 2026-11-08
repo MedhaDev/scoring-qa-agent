@@ -1,0 +1,41 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "category": "missing_data",
+      "columns": "phq9_prorated",
+      "description": "no items missing but marked as prorated",
+      "evidence": "Example respondents: R0094, R0150, R0220, R0236, R0263",
+      "rows_affected": 9,
+      "confirmed": true
+    },
+    {
+      "instrument": "phq9",
+      "category": "missing_data",
+      "columns": "phq9_total",
+      "description": "total blank although enough items were answered",
+      "evidence": "Example respondents: R0189",
+      "rows_affected": 1,
+      "confirmed": true
+    },
+    {
+      "instrument": "phq9",
+      "category": "other",
+      "columns": "phq9_total",
+      "description": "total outside the allowed range 0-27",
+      "evidence": "Example respondents: R0224, R0504",
+      "rows_affected": 2,
+      "confirmed": true
+    },
+    {
+      "instrument": "phq9",
+      "category": "cutoff_bands",
+      "columns": "phq9_band",
+      "description": "severity label does not match the total",
+      "evidence": "Example respondents: R0224, R0504",
+      "rows_affected": 2,
+      "confirmed": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "category": "missing_data",
+      "columns": "phq9_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0005, R0032, R0123, R0143, R0183",
+      "rows_affected": 12,
+      "confirmed": true
+    },
+    {
+      "instrument": "phq9",
+      "category": "missing_data",
+      "columns": "phq9_prorated",
+      "description": "one item missing but not marked as prorated",
+      "evidence": "Example respondents: R0010, R0023, R0028, R0039, R0040",
+      "rows_affected": 94,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "missing_data",
+      "columns": "gad7_prorated",
+      "description": "one item missing but not marked as prorated",
+      "evidence": "Example respondents: R0010, R0023, R0026, R0029, R0031",
+      "rows_affected": 64,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "missing_data",
+      "columns": "gad7_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0037, R0048, R0120, R0138, R0193",
+      "rows_affected": 14,
+      "confirmed": true
+    },
+    {
+      "instrument": "rses",
+      "category": "missing_data",
+      "columns": "rses_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0006, R0024, R0060, R0095, R0122",
+      "rows_affected": 16,
+      "confirmed": true
+    },
+    {
+      "instrument": "rses",
+      "category": "missing_data",
+      "columns": "rses_prorated",
+      "description": "one item missing but not marked as prorated",
+      "evidence": "Example respondents: R0047, R0053, R0054, R0055, R0067",
+      "rows_affected": 71,
+      "confirmed": true
+    }
+  ]
+}

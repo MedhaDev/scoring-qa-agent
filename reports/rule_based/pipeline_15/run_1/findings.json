@@ -1,0 +1,14 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "category": "cutoff_bands",
+      "columns": "phq9_band",
+      "description": "severity label does not match the total",
+      "evidence": "Example respondents: R0038, R0044, R0091, R0117, R0191",
+      "rows_affected": 15,
+      "confirmed": true
+    }
+  ]
+}

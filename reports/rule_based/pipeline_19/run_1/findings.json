@@ -1,0 +1,23 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "gad7",
+      "category": "missing_data",
+      "columns": "gad7_prorated",
+      "description": "one item missing but not marked as prorated",
+      "evidence": "Example respondents: R0010, R0029, R0129, R0142, R0164",
+      "rows_affected": 17,
+      "confirmed": true
+    },
+    {
+      "instrument": "gad7",
+      "category": "missing_data",
+      "columns": "gad7_total",
+      "description": "total given although too many items are missing",
+      "evidence": "Example respondents: R0048, R0193, R0211, R0308",
+      "rows_affected": 4,
+      "confirmed": true
+    }
+  ]
+}

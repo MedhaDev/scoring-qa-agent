@@ -1,0 +1,14 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "rses",
+      "category": "other",
+      "columns": "rses_total",
+      "description": "total outside the allowed range 0-30",
+      "evidence": "Example respondents: R0011, R0022, R0040, R0042, R0045",
+      "rows_affected": 110,
+      "confirmed": true
+    }
+  ]
+}

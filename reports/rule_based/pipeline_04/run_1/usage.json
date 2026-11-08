@@ -1,0 +1,8 @@
+{
+  "checker": "rule_based",
+  "model": "none",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "seconds": 0.19,
+  "turns": 0
+}

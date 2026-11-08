@@ -1,0 +1,14 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "gad7",
+      "category": "cutoff_bands",
+      "columns": "gad7_band",
+      "description": "severity label does not match the total",
+      "evidence": "Example respondents: R0021, R0235, R0370, R0449, R0476",
+      "rows_affected": 6,
+      "confirmed": true
+    }
+  ]
+}
