@@ -1,0 +1,42 @@
+{
+  "verdict": "pass",
+  "findings": [],
+  "rules_understood": {
+    "phq9": {
+      "max_missing_items": 1,
+      "n_items": 9,
+      "half_rounding": "up",
+      "reverse_items": [],
+      "band_starts": [
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "rses": {
+      "n_items": 10,
+      "half_rounding": "up",
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "max_missing_items": 1,
+      "band_starts": []
+    },
+    "gad7": {
+      "reverse_items": [],
+      "half_rounding": "up",
+      "band_starts": [
+        5,
+        10,
+        15
+      ],
+      "n_items": 7,
+      "max_missing_items": 1
+    }
+  }
+}

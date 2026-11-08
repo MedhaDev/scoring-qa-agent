@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "evidence": "All 505 rows match when applying reverse coding (3 - v) to all 10 items. For example, participant R0001 raw sum is 11, and pipeline produced 19 (which equals 30 - 11).",
+      "category": "reverse_coding",
+      "columns": "rses_total",
+      "confirmed": true,
+      "rows_affected": 505,
+      "instrument": "rses",
+      "description": "The scoring pipeline reverse-coded all 10 items of the Rosenberg Self-Esteem Scale (RSES) instead of only the 5 negatively worded items (3, 5, 8, 9, and 10)."
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "n_items": 9,
+      "reverse_items": []
+    },
+    "gad7": {
+      "n_items": 7,
+      "half_rounding": "up",
+      "reverse_items": [],
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "max_missing_items": 1
+    },
+    "rses": {
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "band_starts": [],
+      "n_items": 10,
+      "max_missing_items": 1,
+      "half_rounding": "up"
+    }
+  }
+}

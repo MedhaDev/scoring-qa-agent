@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "rses",
+      "evidence": "505 rows processed; using items 2, 5, 6, 8, and 9 for reverse scoring matches the pipeline's rses_total output exactly for all 505 respondents (whereas following the guide with items 3, 5, 8, 9, and 10 results in 452 mismatches).",
+      "confirmed": true,
+      "columns": "rses_total",
+      "description": "The pipeline reverse-scores items 2, 5, 6, 8, and 9 instead of the correct University of Maryland / scoring guide items 3, 5, 8, 9, and 10 on the Rosenberg Self-Esteem Scale (RSES).",
+      "rows_affected": 505,
+      "category": "reverse_coding"
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "n_items": 9,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "rses": {
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "band_starts": [],
+      "n_items": 10
+    },
+    "gad7": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "half_rounding": "up",
+      "reverse_items": [],
+      "max_missing_items": 1,
+      "n_items": 7
+    }
+  }
+}

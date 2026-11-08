@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "gad7",
+      "evidence": "6 respondents (e.g., R0021, R0235, R0370, R0449, R0476, R0504) who scored a total of 15 were incorrectly classified as 'moderate' instead of 'severe'.",
+      "rows_affected": 6,
+      "confirmed": true,
+      "columns": "gad7_band",
+      "description": "The pipeline assigns the severity label 'moderate' to a GAD-7 total score of exactly 15, whereas according to the GAD-7 scoring guide, a total score of 15 falls at the cutoff for 'severe' (moderate is 10-14, severe is 15+).",
+      "category": "cutoff_bands"
+    }
+  ],
+  "rules_understood": {
+    "rses": {
+      "half_rounding": "up",
+      "band_starts": [],
+      "n_items": 10,
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ]
+    },
+    "gad7": {
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "n_items": 7,
+      "reverse_items": [],
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ]
+    },
+    "phq9": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "half_rounding": "up",
+      "n_items": 9,
+      "reverse_items": [],
+      "max_missing_items": 1
+    }
+  }
+}

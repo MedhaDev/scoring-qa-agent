@@ -1,0 +1,63 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "confirmed": true,
+      "evidence": "6 respondents affected (e.g., R0028, R0122, R0243, R0259, R0425, R0502), where sum is 4 (prorated raw 4.5), scored as 4 and 'none-minimal' instead of 5 and 'mild'.",
+      "instrument": "phq9",
+      "category": "missing_data",
+      "description": "When prorating a PHQ-9 score with 1 missing item resulting in a half-integer (e.g. sum of 4 giving 4.5), the scoring pipeline rounds half-to-even (standard Python round()) instead of following the study convention of rounding halves up (4.5 to 5). This affects the total and consequently the severity band.",
+      "columns": "phq9_total, phq9_band",
+      "rows_affected": 6
+    },
+    {
+      "rows_affected": 2,
+      "evidence": "2 respondents affected (R0328, R0502), where sum is 9 (prorated raw 10.5), scored as 10 instead of 11.",
+      "columns": "gad7_total",
+      "description": "When prorating a GAD-7 score with 1 missing item resulting in a half-integer (e.g. sum of 9 giving 10.5), the scoring pipeline rounds half-to-even (standard Python round()) instead of following the study convention of rounding halves up (10.5 to 11).",
+      "confirmed": true,
+      "category": "missing_data",
+      "instrument": "gad7"
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "max_missing_items": 1,
+      "n_items": 9,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "rses": {
+      "band_starts": [],
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "n_items": 10,
+      "half_rounding": "up"
+    },
+    "gad7": {
+      "n_items": 7,
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "reverse_items": []
+    }
+  }
+}

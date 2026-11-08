@@ -1,0 +1,52 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "columns": "phq9_band",
+      "rows_affected": 28,
+      "category": "cutoff_bands",
+      "instrument": "phq9",
+      "confirmed": true,
+      "evidence": "28 rows affected (all participants with PHQ-9 totals from 15 to 19, e.g., R0029, R0131, R0155).",
+      "description": "The pipeline uses incorrect severity cutoffs for the PHQ-9 band calculation, incorrectly grouping scores of 15 to 19 as 'severe' (omitting the 'moderately severe' category entirely and setting the severe cutpoint at 15 instead of 20)."
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "n_items": 9,
+      "band_starts": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "reverse_items": []
+    },
+    "gad7": {
+      "max_missing_items": 1,
+      "band_starts": [
+        5,
+        10,
+        15
+      ],
+      "half_rounding": "up",
+      "reverse_items": [],
+      "n_items": 7
+    },
+    "rses": {
+      "max_missing_items": 1,
+      "n_items": 10,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "band_starts": [],
+      "half_rounding": "up"
+    }
+  }
+}

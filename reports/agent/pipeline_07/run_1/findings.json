@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "description": "The pipeline incorrectly populates the prorated indicator column as True for every participant who has a valid total score, regardless of whether any questions were actually skipped or answered completely.",
+      "category": "missing_data",
+      "confirmed": true,
+      "columns": "phq9_prorated, gad7_prorated, rses_prorated",
+      "rows_affected": 505,
+      "instrument": "phq9",
+      "evidence": "100% of rows with a non-null total score have _prorated = True across PHQ-9, GAD-7, and RSES, even for participants with 0 missing responses (e.g., 399 respondents with 0 missing PHQ-9 items have phq9_prorated = True)."
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "n_items": 9,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "rses": {
+      "max_missing_items": 1,
+      "n_items": 10,
+      "half_rounding": "up",
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "band_starts": []
+    },
+    "gad7": {
+      "reverse_items": [],
+      "half_rounding": "up",
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "n_items": 7,
+      "max_missing_items": 1
+    }
+  }
+}

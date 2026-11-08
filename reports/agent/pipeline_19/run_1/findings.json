@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "description": "The scoring pipeline calculates GAD-7 total using only items 1 through 6 (`gad7_1` to `gad7_6`), incorrectly omitting item 7 (`gad7_7`). Consequently, the total, severity band, and prorated status are computed based on a 6-item set instead of the required 7-item set.",
+      "category": "item_set",
+      "evidence": "160 rows affected for `gad7_total`, 40 rows for `gad7_band`, and 21 rows for `gad7_prorated`. For example, respondent R0004 scored 10.0 in the pipeline but 12.0 when scored correctly across all 7 items.",
+      "rows_affected": 160,
+      "instrument": "gad7",
+      "confirmed": true,
+      "columns": "gad7_total, gad7_band, gad7_prorated"
+    }
+  ],
+  "rules_understood": {
+    "gad7": {
+      "max_missing_items": 1,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "n_items": 7,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ]
+    },
+    "rses": {
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "band_starts": [],
+      "n_items": 10
+    },
+    "phq9": {
+      "n_items": 9,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "half_rounding": "up",
+      "reverse_items": [],
+      "max_missing_items": 1
+    }
+  }
+}

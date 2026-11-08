@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "description": "The scoring pipeline incorrectly includes `phq9_difficulty` (the difficulty question at the bottom of the PHQ-9 form) as a 10th item in the PHQ-9 score calculations, violating the PHQ-9 scoring guide which explicitly states that difficulty is not part of any score.",
+      "confirmed": true,
+      "evidence": "505 rows affected for phq9_total, phq9_band, and phq9_prorated where responses involving phq9_difficulty were treated as part of the 9-item scale (e.g. respondent R0094 where phq9_difficulty was missing (-9) was incorrectly marked as prorated True out of 10 items).",
+      "rows_affected": 505,
+      "instrument": "phq9",
+      "category": "item_set",
+      "columns": "phq9_total, phq9_band, phq9_prorated"
+    }
+  ],
+  "rules_understood": {
+    "rses": {
+      "band_starts": [],
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "half_rounding": "up",
+      "n_items": 10
+    },
+    "phq9": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "reverse_items": [],
+      "half_rounding": "up",
+      "n_items": 9,
+      "max_missing_items": 1
+    },
+    "gad7": {
+      "n_items": 7,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "reverse_items": [],
+      "half_rounding": "up",
+      "max_missing_items": 1
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "category": "reverse_coding",
+      "rows_affected": 505,
+      "confirmed": true,
+      "evidence": "All 505 rows in pipeline_output.csv for rses_total are exactly 5 points higher than the correct score calculated using 3 - v. E.g., R0001 has a correct total of 16.0 and a pipeline total of 21.0.",
+      "columns": "rses_total",
+      "instrument": "rses",
+      "description": "The pipeline uses the incorrect reverse-coding formula for the Rosenberg Self-Esteem Scale (RSES). Per the scoring guide, negatively worded items (3, 5, 8, 9, 10) must be reverse-scored as 3 - v (where v is the stored answer 0-3). The pipeline instead uses 4 - v (resulting in a +1 error per reversed item, adding a total of +5 to every score)."
+    }
+  ],
+  "rules_understood": {
+    "gad7": {
+      "reverse_items": [],
+      "max_missing_items": 1,
+      "n_items": 7,
+      "half_rounding": "up",
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ]
+    },
+    "rses": {
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "n_items": 10,
+      "max_missing_items": 1,
+      "band_starts": [],
+      "half_rounding": "up"
+    },
+    "phq9": {
+      "half_rounding": "up",
+      "reverse_items": [],
+      "max_missing_items": 1,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "n_items": 9
+    }
+  }
+}

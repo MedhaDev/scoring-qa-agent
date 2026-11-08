@@ -1,0 +1,72 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "confirmed": true,
+      "description": "The pipeline ignores missing data (-9 / skipped questions) instead of applying the study protocol's missing-data rules. Specifically, participants with one or more skipped questions are still given a total score (calculated by simply summing available items without prorating), and `*_prorated` is incorrectly set to `False` for everyone. Furthermore, participants with 2 or more skipped questions are incorrectly given a total score instead of a blank (NaN) value.",
+      "rows_affected": 505,
+      "columns": "phq9_total, phq9_band, phq9_prorated, gad7_total, gad7_band, gad7_prorated, rses_total, rses_prorated",
+      "evidence": "505 rows affected. For example, participant R0005 skipped 4 PHQ-9 questions (phq9_1, phq9_3, phq9_4, phq9_7 are -9) yet received a phq9_total of 1 and phq9_prorated = False. Participant R0010 skipped 1 PHQ-9 question and received phq9_prorated = False without scaling up.",
+      "category": "missing_data"
+    },
+    {
+      "evidence": "71 rows affected with missing RSES items. For example, participant R0006 skipped rses_1, rses_5, rses_7, and rses_9 (all -9). Items 5 and 9 are negative items; their missing values contributed 3 each, resulting in an inflated total of 14 instead of being handled as missing data.",
+      "category": "reverse_coding",
+      "columns": "rses_total",
+      "confirmed": true,
+      "instrument": "rses",
+      "rows_affected": 71,
+      "description": "When calculating rses_total, missing/skipped items (-9) are implicitly treated as answering 0 (strongly disagree) rather than being treated as missing data. For positively worded items, missing answers contribute 0, and for negatively worded items (3, 5, 8, 9, 10), missing answers contribute 3 (since 3 - 0 = 3), artificially inflating the total score for participants who skipped negatively worded items."
+    },
+    {
+      "rows_affected": 9,
+      "confirmed": true,
+      "description": "When question 9 of the PHQ-9 is skipped (-9), the pipeline assigns `False` to `phq9_self_harm_flag` instead of leaving it blank as required by the scoring guide (\"If question 9 itself was skipped, leave the flag blank\").",
+      "instrument": "phq9",
+      "columns": "phq9_self_harm_flag",
+      "category": "missing_data",
+      "evidence": "9 respondents skipped question 9 (R0143, R0183, R0189, R0251, R0276, R0324, R0338, R0396, R0401) and all received `False` instead of blank."
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "n_items": 9,
+      "half_rounding": "up",
+      "reverse_items": [],
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "max_missing_items": 1
+    },
+    "gad7": {
+      "max_missing_items": 1,
+      "n_items": 7,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "reverse_items": [],
+      "half_rounding": "up"
+    },
+    "rses": {
+      "band_starts": [],
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "half_rounding": "up",
+      "n_items": 10,
+      "max_missing_items": 1
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "columns": "phq9_total, gad7_total",
+      "description": "The pipeline treats PHQ-9 and GAD-7 item answers as coded 1-4 instead of 0-3 (adding 1 to each item response before summing/prorating), resulting in totals that are inflated by 9 for PHQ-9 and 7 for GAD-7.",
+      "confirmed": true,
+      "rows_affected": 493,
+      "instrument": "phq9",
+      "category": "off_by_one",
+      "evidence": "493 rows affected for PHQ-9, 491 rows affected for GAD-7 (all respondents with valid totals). Example: Respondent R0001 raw answers are all 0, but pipeline gives phq9_total = 9.0 and gad7_total = 7.0."
+    },
+    {
+      "instrument": "phq9",
+      "description": "The pipeline uses the shifted totals (9-36 for PHQ-9, 7-28 for GAD-7) against standard cutoffs without shifting the cutpoints, causing misclassification of severity bands (e.g., a true PHQ-9 score of 0 resulting in total 9 being classified as 'mild' instead of 'none-minimal').",
+      "columns": "phq9_band, gad7_band",
+      "confirmed": true,
+      "rows_affected": 493,
+      "category": "cutoff_bands",
+      "evidence": "493 rows affected for PHQ-9 band, 491 rows affected for GAD-7 band."
+    },
+    {
+      "description": "The pipeline sets phq9_self_harm_flag to True whenever question 9 is answered, rather than checking if the answer is greater than 0 (i.e. answering 0 ('not at all') incorrectly triggers the flag).",
+      "instrument": "phq9",
+      "columns": "phq9_self_harm_flag",
+      "rows_affected": 441,
+      "confirmed": true,
+      "evidence": "496 participants who answered question 9 get True (including 439 who answered 0).",
+      "category": "other"
+    },
+    {
+      "category": "reverse_coding",
+      "rows_affected": 71,
+      "evidence": "71 mismatch rows between correct scorer and pipeline output.",
+      "columns": "rses_total",
+      "instrument": "unknown",
+      "confirmed": false,
+      "description": "Minor discrepancies in RSES total scores (71 rows affected with differences of +/- 1 or 2), potentially due to rounding order during prorating or reverse coding definition differences."
+    }
+  ],
+  "rules_understood": {
+    "rses": {
+      "band_starts": [],
+      "max_missing_items": 1,
+      "n_items": 10,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "half_rounding": "up"
+    },
+    "phq9": {
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "reverse_items": [],
+      "band_starts": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "n_items": 9
+    },
+    "gad7": {
+      "reverse_items": [],
+      "band_starts": [
+        5,
+        10,
+        15
+      ],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "n_items": 7
+    }
+  }
+}

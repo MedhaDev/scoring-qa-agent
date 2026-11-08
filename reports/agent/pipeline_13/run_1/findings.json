@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "confirmed": true,
+      "category": "missing_data",
+      "evidence": "131 mismatches in phq9_total, 39 in phq9_band, 20 in phq9_prorated across respondents with skipped answers.",
+      "columns": "phq9_total, phq9_band, phq9_prorated",
+      "rows_affected": 131,
+      "description": "The scoring pipeline mishandles missing data (specifically when item 8 is skipped or when single missing items are encountered) on the PHQ-9, incorrectly dropping or returning null totals for participants who skipped exactly one question, while GAD-7 and RSES scoring is correct."
+    }
+  ],
+  "rules_understood": {
+    "gad7": {
+      "n_items": 7,
+      "half_rounding": "up",
+      "reverse_items": [],
+      "max_missing_items": 1,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ]
+    },
+    "phq9": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "reverse_items": [],
+      "half_rounding": "up",
+      "n_items": 9,
+      "max_missing_items": 1
+    },
+    "rses": {
+      "band_starts": [],
+      "n_items": 10,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "max_missing_items": 1,
+      "half_rounding": "up"
+    }
+  }
+}

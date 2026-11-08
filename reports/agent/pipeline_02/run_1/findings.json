@@ -1,0 +1,72 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "columns": "phq9_total, phq9_band, phq9_prorated",
+      "evidence": "10 respondents affected (e.g., R0032, R0123, R0143, R0251, R0324, R0336, R0393, R0454, R0482, R0503).",
+      "category": "missing_data",
+      "confirmed": true,
+      "description": "When exactly two PHQ-9 items are missing, the pipeline incorrectly prorates the score (scaling up by multiplying the sum of answered items by 9 and dividing by 7, with rounding half up) instead of treating two or more missing items as invalid (returning blank).",
+      "instrument": "phq9",
+      "rows_affected": 10
+    },
+    {
+      "columns": "gad7_total, gad7_band, gad7_prorated",
+      "confirmed": true,
+      "description": "When exactly two GAD-7 items are missing, the pipeline incorrectly prorates the score (scaling up by multiplying the sum of answered items by 7 and dividing by 5, with rounding half up) instead of treating two or more missing items as invalid (returning blank).",
+      "evidence": "11 respondents affected (e.g., R0037, R0048, R0120, R0138, R0193, R0211, R0259, R0282, R0308, R0500, R0503).",
+      "category": "missing_data",
+      "rows_affected": 11,
+      "instrument": "gad7"
+    },
+    {
+      "rows_affected": 13,
+      "instrument": "rses",
+      "category": "missing_data",
+      "evidence": "13 respondents affected (e.g., R0024, R0095, R0122, R0157, R0177, R0198, R0223, R0312, R0429, R0431, R0440, R0478, R0505).",
+      "columns": "rses_total, rses_prorated",
+      "description": "When exactly two Rosenberg Self-Esteem Scale items are missing, the pipeline incorrectly prorates the score (scaling up by multiplying the sum of answered items by 10 and dividing by 8, with rounding half up) instead of treating two or more missing items as invalid (returning blank).",
+      "confirmed": true
+    }
+  ],
+  "rules_understood": {
+    "gad7": {
+      "n_items": 7,
+      "reverse_items": [],
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "max_missing_items": 1,
+      "half_rounding": "up"
+    },
+    "rses": {
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "band_starts": [],
+      "n_items": 10,
+      "half_rounding": "up"
+    },
+    "phq9": {
+      "max_missing_items": 1,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "half_rounding": "up",
+      "n_items": 9,
+      "reverse_items": []
+    }
+  }
+}

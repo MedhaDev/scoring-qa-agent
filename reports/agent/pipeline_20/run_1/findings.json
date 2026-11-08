@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "evidence": "Across all 505 respondents (489 validly scored), matching our scorer with items 3, 5, 8, and 9 reversed produced 0 mismatches against pipeline_output.csv (compared to 499 mismatches when using the correct guide rule of 3, 5, 8, 9, and 10).",
+      "description": "The scoring pipeline omits item 10 (`rses_10`) from reverse coding, reversing only items 3, 5, 8, and 9 instead of the required items 3, 5, 8, 9, and 10 specified in the RSES scoring guide.",
+      "confirmed": true,
+      "category": "reverse_coding",
+      "instrument": "rses",
+      "rows_affected": 489,
+      "columns": "rses_total"
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "reverse_items": [],
+      "half_rounding": "up",
+      "n_items": 9,
+      "max_missing_items": 1
+    },
+    "rses": {
+      "band_starts": [],
+      "n_items": 10,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "half_rounding": "up",
+      "max_missing_items": 1
+    },
+    "gad7": {
+      "n_items": 7,
+      "half_rounding": "up",
+      "reverse_items": [],
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "max_missing_items": 1
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "evidence": "PHQ-9: 94 rows affected. GAD-7: 64 rows affected. RSES: 71 rows affected. Example: respondent R0028 skipped phq9_4 (score -9); answered sum is 4, but the correct prorated score is 5 (4 * 9 / 8 = 4.5 -> rounds up to 5). The pipeline output gives phq9_total = 4.",
+      "rows_affected": 94,
+      "description": "When a participant skips exactly one question (-9), the pipeline fails to scale up (prorate) the score according to the study protocol. Instead, it sums the answered items without adjustment (while still correctly flagging the questionnaire as prorated = True).",
+      "instrument": "phq9",
+      "confirmed": true,
+      "columns": "phq9_total, phq9_band, gad7_total, gad7_band, rses_total",
+      "category": "missing_data"
+    },
+    {
+      "description": "When a participant skips exactly one question (-9), the GAD-7 scoring pipeline fails to scale up (prorate) the score.",
+      "category": "missing_data",
+      "confirmed": true,
+      "instrument": "gad7",
+      "rows_affected": 64,
+      "columns": "gad7_total, gad7_band",
+      "evidence": "64 rows affected. Example: respondent R0010 skipped gad7_3; answered sum is 5, correct prorated score is 6 (5 * 7 / 6 = 5.83 -> 6), pipeline gives 5."
+    },
+    {
+      "columns": "rses_total",
+      "instrument": "rses",
+      "evidence": "71 rows affected. Example: respondent R0047 skipped rses_10; answered sum of reversed items is 27, correct prorated score is 30 (27 * 10 / 9 = 30), pipeline gives 27.",
+      "rows_affected": 71,
+      "description": "When a participant skips exactly one question (-9), the RSES scoring pipeline fails to scale up (prorate) the score after reverse-coding.",
+      "confirmed": true,
+      "category": "missing_data"
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "n_items": 9,
+      "band_starts": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "half_rounding": "up",
+      "reverse_items": [],
+      "max_missing_items": 1
+    },
+    "rses": {
+      "n_items": 10,
+      "band_starts": [],
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "max_missing_items": 1,
+      "half_rounding": "up"
+    },
+    "gad7": {
+      "max_missing_items": 1,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "n_items": 7,
+      "band_starts": [
+        5,
+        10,
+        15
+      ]
+    }
+  }
+}

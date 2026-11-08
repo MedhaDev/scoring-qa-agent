@@ -1,0 +1,52 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "evidence": "Exactly 15 respondents (e.g. R0038, R0044, R0091, R0117, R0191) have a PHQ-9 total of 10.0. The pipeline assigns them 'mild', whereas the correct scoring guide classification is 'moderate'.",
+      "instrument": "phq9",
+      "category": "cutoff_bands",
+      "confirmed": true,
+      "description": "The scoring pipeline misclassifies a PHQ-9 total score of exactly 10 as 'mild' instead of 'moderate'. According to the PHQ-9 scoring guide, cutpoints are at 5, 10, 15, and 20, where a score sitting exactly on a cutpoint belongs to the higher group (so 10 is 'moderate').",
+      "columns": "phq9_band",
+      "rows_affected": 15
+    }
+  ],
+  "rules_understood": {
+    "rses": {
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ],
+      "n_items": 10,
+      "band_starts": []
+    },
+    "phq9": {
+      "reverse_items": [],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "n_items": 9,
+      "band_starts": [
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "gad7": {
+      "band_starts": [
+        5,
+        10,
+        15
+      ],
+      "n_items": 7,
+      "reverse_items": [],
+      "half_rounding": "up",
+      "max_missing_items": 1
+    }
+  }
+}

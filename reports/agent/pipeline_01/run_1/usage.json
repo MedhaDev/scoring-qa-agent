@@ -1,0 +1,11 @@
+{
+  "profile": "cheap",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 91771,
+  "output_tokens": 4002,
+  "seconds": 20.14,
+  "turns": 17,
+  "checker": "agent_cheap",
+  "stop_reason": "submitted",
+  "python_scripts_run": 11
+}

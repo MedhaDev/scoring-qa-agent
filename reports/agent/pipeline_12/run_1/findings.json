@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "columns": "gad7_band",
+      "evidence": "444 rows affected out of 505 (e.g., respondent R0001 with GAD-7 total 1.0 is incorrectly labeled 'mild' instead of 'minimal').",
+      "instrument": "gad7",
+      "category": "cutoff_bands",
+      "description": "The pipeline assigns GAD-7 severity bands using PHQ-9 severity categories ('mild', 'moderate', 'moderately severe', 'severe') and incorrect cutpoints (0-5 mild, 6-10 moderate, 11-15 moderately severe, 16-21 severe) instead of the correct GAD-7 cutpoints (0-4 minimal, 5-9 mild, 10-14 moderate, 15-21 severe).",
+      "confirmed": true,
+      "rows_affected": 444
+    }
+  ],
+  "rules_understood": {
+    "rses": {
+      "half_rounding": "up",
+      "band_starts": [],
+      "n_items": 10,
+      "max_missing_items": 1,
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ]
+    },
+    "phq9": {
+      "half_rounding": "up",
+      "n_items": 9,
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "max_missing_items": 1,
+      "reverse_items": []
+    },
+    "gad7": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "half_rounding": "up",
+      "max_missing_items": 1,
+      "reverse_items": [],
+      "n_items": 7
+    }
+  }
+}

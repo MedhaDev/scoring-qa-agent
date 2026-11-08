@@ -1,0 +1,54 @@
+{
+  "verdict": "issues_found",
+  "findings": [
+    {
+      "instrument": "phq9",
+      "rows_affected": 124,
+      "columns": "phq9_self_harm_flag",
+      "category": "item_set",
+      "description": "The scoring pipeline incorrectly computes the PHQ-9 self-harm flag (phq9_self_harm_flag) using item 8 (phq9_8) instead of item 9 (phq9_9). Item 9 is the specific question addressing thoughts of self-harm/suicide as specified in the PHQ-9 scoring guide.",
+      "confirmed": true,
+      "evidence": "124 mismatches out of 505 rows when compared against question 9. 100% exact match when compared against question 8 (phq9_8)."
+    }
+  ],
+  "rules_understood": {
+    "phq9": {
+      "reverse_items": [],
+      "half_rounding": "up",
+      "band_starts": [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "n_items": 9,
+      "max_missing_items": 1
+    },
+    "gad7": {
+      "band_starts": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "max_missing_items": 1,
+      "n_items": 7,
+      "half_rounding": "up",
+      "reverse_items": []
+    },
+    "rses": {
+      "band_starts": [],
+      "n_items": 10,
+      "max_missing_items": 1,
+      "half_rounding": "up",
+      "reverse_items": [
+        3,
+        5,
+        8,
+        9,
+        10
+      ]
+    }
+  }
+}
