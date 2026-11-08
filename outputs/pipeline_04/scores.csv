@@ -1,0 +1,506 @@
+respondent_id,phq9_total,phq9_band,phq9_prorated,phq9_self_harm_flag,gad7_total,gad7_band,gad7_prorated,rses_total,rses_prorated
+R0001,9,mild,False,True,7,mild,False,16,False
+R0002,9,mild,False,True,7,mild,False,16,False
+R0003,10,moderate,False,True,7,mild,False,20,False
+R0004,13,moderate,False,True,19,severe,False,17,False
+R0005,,,,True,13,moderate,False,24,False
+R0006,21,severe,False,True,13,moderate,False,,
+R0007,10,moderate,False,True,7,mild,False,24,False
+R0008,16,moderately severe,False,True,15,severe,False,22,False
+R0009,12,moderate,False,True,9,mild,False,10,False
+R0010,9,mild,True,True,13,moderate,True,22,False
+R0011,9,mild,False,True,7,mild,False,28,False
+R0012,11,moderate,False,True,17,severe,False,12,False
+R0013,14,moderate,False,True,7,mild,False,16,False
+R0014,9,mild,False,True,9,mild,False,23,False
+R0015,16,moderately severe,False,True,10,moderate,False,13,False
+R0016,9,mild,False,True,9,mild,False,25,False
+R0017,10,moderate,False,True,7,mild,False,23,False
+R0018,9,mild,False,True,7,mild,False,15,False
+R0019,13,moderate,False,True,9,mild,False,12,False
+R0020,9,mild,False,True,7,mild,False,23,False
+R0021,23,severe,False,True,22,,False,5,False
+R0022,9,mild,False,True,7,mild,False,27,False
+R0023,12,moderate,True,True,11,moderate,True,14,False
+R0024,15,moderately severe,False,True,8,mild,False,,
+R0025,16,moderately severe,False,True,16,severe,False,18,False
+R0026,10,moderate,False,True,8,mild,True,21,False
+R0027,9,mild,False,True,9,mild,False,19,False
+R0028,14,moderate,True,True,10,moderate,False,15,False
+R0029,24,severe,False,True,13,moderate,True,12,False
+R0030,12,moderate,False,True,12,moderate,False,21,False
+R0031,10,moderate,False,True,7,mild,True,22,False
+R0032,,,,True,7,mild,False,10,False
+R0033,18,moderately severe,False,True,12,moderate,False,8,False
+R0034,11,moderate,False,True,15,severe,False,11,False
+R0035,18,moderately severe,False,True,10,moderate,False,23,False
+R0036,14,moderate,False,True,7,mild,True,15,False
+R0037,9,mild,False,True,,,,21,False
+R0038,19,moderately severe,False,True,7,mild,False,20,False
+R0039,10,moderate,True,True,7,mild,False,16,False
+R0040,12,moderate,True,True,14,moderate,False,26,False
+R0041,20,severe,True,True,17,severe,False,12,False
+R0042,9,mild,False,True,8,mild,False,30,False
+R0043,9,mild,False,True,7,mild,False,23,False
+R0044,19,moderately severe,False,True,11,moderate,False,9,False
+R0045,11,moderate,True,True,7,mild,False,26,False
+R0046,17,moderately severe,True,True,14,moderate,False,15,False
+R0047,9,mild,True,True,8,mild,False,31,True
+R0048,16,moderately severe,False,True,,,,0,False
+R0049,20,severe,False,True,10,moderate,False,13,False
+R0050,16,moderately severe,True,True,13,moderate,False,24,False
+R0051,17,moderately severe,False,True,9,mild,False,13,False
+R0052,9,mild,False,True,14,moderate,True,15,False
+R0053,13,moderate,False,True,15,severe,False,28,True
+R0054,21,severe,False,True,12,moderate,False,7,True
+R0055,9,mild,False,True,7,mild,False,27,True
+R0056,23,severe,False,True,20,severe,False,18,False
+R0057,13,moderate,False,True,7,mild,False,19,False
+R0058,10,moderate,False,True,7,mild,False,21,False
+R0059,17,moderately severe,False,True,18,severe,False,11,False
+R0060,12,moderate,False,True,9,mild,False,,
+R0061,9,mild,False,True,7,mild,False,27,False
+R0062,9,mild,True,True,7,mild,False,25,False
+R0063,13,moderate,False,True,7,mild,False,13,False
+R0064,9,mild,False,True,7,mild,False,30,False
+R0065,20,severe,False,True,14,moderate,True,28,False
+R0066,20,severe,False,True,13,moderate,False,14,False
+R0067,11,moderate,False,True,9,mild,True,18,True
+R0068,9,mild,False,True,7,mild,False,29,False
+R0069,29,,True,True,20,severe,False,8,False
+R0070,17,moderately severe,False,True,9,mild,False,11,True
+R0071,9,mild,False,True,7,mild,False,21,False
+R0072,14,moderate,False,True,16,severe,False,16,False
+R0073,11,moderate,True,True,9,mild,False,25,False
+R0074,14,moderate,False,True,18,severe,False,13,False
+R0075,10,moderate,False,True,7,mild,False,15,False
+R0076,10,moderate,False,True,21,severe,False,30,False
+R0077,23,severe,False,True,10,moderate,False,12,False
+R0078,16,moderately severe,True,True,20,severe,False,16,False
+R0079,22,severe,False,True,8,mild,True,14,False
+R0080,10,moderate,False,True,9,mild,False,12,False
+R0081,22,severe,False,True,12,moderate,False,13,True
+R0082,30,,False,True,16,severe,False,26,False
+R0083,11,moderate,False,True,27,,False,25,False
+R0084,20,severe,True,True,13,moderate,False,7,False
+R0085,9,mild,False,True,7,mild,True,26,False
+R0086,10,moderate,False,True,7,mild,False,25,False
+R0087,10,moderate,False,True,8,mild,False,6,False
+R0088,10,moderate,False,True,10,moderate,False,22,False
+R0089,10,moderate,False,True,7,mild,False,27,True
+R0090,11,moderate,False,True,7,mild,True,27,False
+R0091,19,moderately severe,False,True,15,severe,False,14,True
+R0092,9,mild,False,True,7,mild,False,30,False
+R0093,11,moderate,False,True,12,moderate,False,8,False
+R0094,17,moderately severe,False,True,7,mild,False,24,False
+R0095,9,mild,True,True,7,mild,True,,
+R0096,12,moderate,False,True,9,mild,False,15,False
+R0097,13,moderate,False,True,12,moderate,False,13,False
+R0098,21,severe,False,True,7,mild,False,29,False
+R0099,12,moderate,False,True,14,moderate,False,17,False
+R0100,10,moderate,False,True,10,moderate,False,7,True
+R0101,9,mild,False,True,7,mild,False,23,False
+R0102,20,severe,False,True,8,mild,False,21,False
+R0103,15,moderately severe,False,True,15,severe,False,25,False
+R0104,9,mild,False,True,7,mild,False,30,False
+R0105,9,mild,False,True,8,mild,False,28,False
+R0106,12,moderate,False,True,7,mild,False,17,False
+R0107,9,mild,False,True,7,mild,False,20,False
+R0108,12,moderate,False,True,14,moderate,False,25,False
+R0109,9,mild,False,True,7,mild,False,30,False
+R0110,11,moderate,True,True,9,mild,False,11,False
+R0111,9,mild,False,True,7,mild,False,30,False
+R0112,21,severe,False,True,10,moderate,False,11,True
+R0113,13,moderate,False,True,17,severe,False,15,False
+R0114,10,moderate,False,True,7,mild,False,13,True
+R0115,9,mild,False,True,13,moderate,False,22,False
+R0116,23,severe,False,True,19,severe,False,6,False
+R0117,19,moderately severe,True,True,24,,False,18,False
+R0118,9,mild,False,True,7,mild,True,23,False
+R0119,9,mild,True,True,7,mild,False,28,False
+R0120,11,moderate,False,True,,,,14,True
+R0121,9,mild,False,True,14,moderate,False,17,True
+R0122,14,moderate,True,True,19,severe,False,,
+R0123,,,,True,9,mild,True,14,False
+R0124,9,mild,False,True,7,mild,False,23,False
+R0125,10,moderate,False,True,7,mild,False,28,False
+R0126,9,mild,False,True,7,mild,False,30,False
+R0127,9,mild,True,True,7,mild,False,25,False
+R0128,10,moderate,False,True,7,mild,False,18,False
+R0129,18,moderately severe,False,True,14,moderate,True,3,False
+R0130,14,moderate,False,True,7,mild,False,24,False
+R0131,28,,False,True,19,severe,False,6,False
+R0132,9,mild,False,True,9,mild,False,27,False
+R0133,9,mild,False,True,8,mild,False,23,False
+R0134,16,moderately severe,False,True,14,moderate,False,13,False
+R0135,9,mild,True,True,7,mild,False,20,False
+R0136,11,moderate,False,True,8,mild,False,17,False
+R0137,29,,False,True,15,severe,False,2,False
+R0138,20,severe,False,True,,,,2,False
+R0139,10,moderate,False,True,11,moderate,False,17,False
+R0140,9,mild,False,True,7,mild,False,27,False
+R0141,10,moderate,False,True,8,mild,False,14,False
+R0142,23,severe,False,True,13,moderate,True,3,False
+R0143,,,,,8,mild,False,29,False
+R0144,10,moderate,True,True,7,mild,False,16,False
+R0145,10,moderate,False,True,8,mild,False,7,True
+R0146,16,moderately severe,False,True,10,moderate,False,15,False
+R0147,18,moderately severe,False,True,14,moderate,False,16,False
+R0148,9,mild,False,True,11,moderate,False,23,False
+R0149,9,mild,False,True,7,mild,False,6,True
+R0150,12,moderate,False,True,10,moderate,False,25,False
+R0151,9,mild,False,True,18,severe,False,17,False
+R0152,9,mild,True,True,7,mild,False,30,False
+R0153,9,mild,False,True,7,mild,False,18,False
+R0154,15,moderately severe,False,True,9,mild,True,19,False
+R0155,28,,True,True,9,mild,False,1,False
+R0156,12,moderate,False,True,16,severe,False,16,False
+R0157,10,moderate,False,True,8,mild,False,,
+R0158,16,moderately severe,False,True,11,moderate,False,11,True
+R0159,9,mild,False,True,8,mild,False,20,False
+R0160,12,moderate,False,True,21,severe,True,12,False
+R0161,12,moderate,False,True,10,moderate,False,27,False
+R0162,11,moderate,True,True,8,mild,False,19,True
+R0163,20,severe,False,True,16,severe,False,20,False
+R0164,10,moderate,False,True,7,mild,True,26,False
+R0165,12,moderate,False,True,11,moderate,False,20,False
+R0166,9,mild,False,True,7,mild,False,14,True
+R0167,17,moderately severe,False,True,20,severe,False,1,False
+R0168,10,moderate,False,True,7,mild,False,23,False
+R0169,25,severe,False,True,28,,False,1,False
+R0170,10,moderate,False,True,9,mild,False,14,False
+R0171,22,severe,False,True,17,severe,False,10,False
+R0172,13,moderate,False,True,12,moderate,False,23,False
+R0173,9,mild,False,True,9,mild,False,17,False
+R0174,9,mild,False,True,7,mild,False,25,False
+R0175,9,mild,False,True,7,mild,False,27,False
+R0176,18,moderately severe,True,True,12,moderate,False,25,False
+R0177,12,moderate,False,True,8,mild,False,,
+R0178,17,moderately severe,False,True,12,moderate,False,5,False
+R0179,28,,False,True,16,severe,False,13,False
+R0180,9,mild,True,True,7,mild,False,13,True
+R0181,25,severe,True,True,18,severe,False,4,True
+R0182,12,moderate,False,True,9,mild,False,21,False
+R0183,,,,,9,mild,False,14,False
+R0184,9,mild,False,True,7,mild,False,27,False
+R0185,16,moderately severe,True,True,11,moderate,False,30,False
+R0186,23,severe,True,True,7,mild,False,14,False
+R0187,23,severe,False,True,13,moderate,False,3,True
+R0188,9,mild,True,True,7,mild,False,26,False
+R0189,9,mild,True,,8,mild,False,29,False
+R0190,15,moderately severe,True,True,17,severe,False,18,False
+R0191,19,moderately severe,False,True,16,severe,False,7,False
+R0192,22,severe,False,True,9,mild,True,21,False
+R0193,9,mild,False,True,,,,29,True
+R0194,9,mild,False,True,7,mild,False,7,True
+R0195,10,moderate,True,True,9,mild,False,10,True
+R0196,9,mild,True,True,7,mild,False,25,False
+R0197,16,moderately severe,False,True,10,moderate,False,30,False
+R0198,19,moderately severe,False,True,8,mild,False,,
+R0199,18,moderately severe,True,True,17,severe,False,8,False
+R0200,10,moderate,False,True,7,mild,False,27,False
+R0201,9,mild,False,True,9,mild,False,25,False
+R0202,11,moderate,True,True,9,mild,False,11,False
+R0203,11,moderate,False,True,7,mild,False,27,False
+R0204,9,mild,True,True,7,mild,False,20,False
+R0205,25,severe,False,True,19,severe,True,15,False
+R0206,21,severe,False,True,23,,False,13,False
+R0207,21,severe,False,True,14,moderate,True,25,False
+R0208,11,moderate,False,True,8,mild,False,26,True
+R0209,9,mild,True,True,7,mild,False,19,False
+R0210,10,moderate,False,True,7,mild,False,24,False
+R0211,9,mild,False,True,,,,30,False
+R0212,27,severe,False,True,18,severe,False,5,False
+R0213,10,moderate,False,True,12,moderate,False,10,True
+R0214,9,mild,True,True,7,mild,False,15,False
+R0215,9,mild,False,True,7,mild,False,29,True
+R0216,15,moderately severe,True,True,7,mild,False,22,False
+R0217,10,moderate,False,True,10,moderate,False,18,False
+R0218,17,moderately severe,True,True,10,moderate,False,27,True
+R0219,10,moderate,False,True,7,mild,False,24,False
+R0220,10,moderate,False,True,10,moderate,False,25,False
+R0221,30,,False,True,14,moderate,False,8,False
+R0222,19,moderately severe,False,True,7,mild,False,21,False
+R0223,23,severe,False,True,15,severe,True,,
+R0224,35,,False,True,27,,False,4,False
+R0225,11,moderate,False,True,9,mild,False,5,False
+R0226,12,moderate,False,True,14,moderate,False,30,False
+R0227,9,mild,False,True,9,mild,False,23,True
+R0228,11,moderate,False,True,8,mild,False,27,False
+R0229,11,moderate,False,True,16,severe,True,12,False
+R0230,9,mild,False,True,7,mild,False,26,True
+R0231,10,moderate,False,True,9,mild,False,19,False
+R0232,29,,False,True,14,moderate,False,1,False
+R0233,32,,False,True,18,severe,False,0,False
+R0234,10,moderate,True,True,12,moderate,False,26,False
+R0235,18,moderately severe,False,True,22,,False,7,False
+R0236,18,moderately severe,False,True,11,moderate,False,6,False
+R0237,13,moderate,False,True,10,moderate,False,25,False
+R0238,10,moderate,False,True,7,mild,False,20,True
+R0239,14,moderate,False,True,7,mild,False,13,False
+R0240,9,mild,False,True,7,mild,False,23,False
+R0241,20,severe,False,True,10,moderate,False,27,False
+R0242,12,moderate,False,True,20,severe,False,3,False
+R0243,14,moderate,True,True,7,mild,False,25,False
+R0244,21,severe,False,True,17,severe,False,15,False
+R0245,12,moderate,False,True,9,mild,True,23,False
+R0246,9,mild,False,True,12,moderate,False,24,False
+R0247,16,moderately severe,False,True,13,moderate,True,0,True
+R0248,9,mild,False,True,7,mild,True,25,False
+R0249,9,mild,True,True,13,moderate,False,26,False
+R0250,12,moderate,True,True,7,mild,True,20,False
+R0251,,,,,7,mild,False,19,False
+R0252,9,mild,False,True,7,mild,True,30,False
+R0253,13,moderate,False,True,19,severe,True,16,False
+R0254,14,moderate,False,True,8,mild,False,25,False
+R0255,10,moderate,False,True,8,mild,False,28,True
+R0256,28,,False,True,17,severe,False,9,False
+R0257,17,moderately severe,True,True,28,,False,21,False
+R0258,9,mild,True,True,8,mild,False,27,True
+R0259,14,moderate,True,True,,,,18,False
+R0260,15,moderately severe,False,True,7,mild,False,19,False
+R0261,10,moderate,False,True,13,moderate,False,20,False
+R0262,11,moderate,False,True,7,mild,False,24,False
+R0263,15,moderately severe,False,True,7,mild,False,19,False
+R0264,15,moderately severe,False,True,7,mild,False,17,False
+R0265,15,moderately severe,False,True,7,mild,False,27,False
+R0266,10,moderate,False,True,15,severe,False,24,False
+R0267,11,moderate,False,True,7,mild,False,24,False
+R0268,18,moderately severe,False,True,19,severe,False,17,True
+R0269,9,mild,False,True,7,mild,False,30,False
+R0270,21,severe,True,True,11,moderate,False,10,False
+R0271,14,moderate,False,True,11,moderate,False,16,True
+R0272,11,moderate,False,True,10,moderate,False,11,False
+R0273,15,moderately severe,False,True,13,moderate,False,22,False
+R0274,13,moderate,False,True,20,severe,True,8,False
+R0275,23,severe,False,True,7,mild,False,2,False
+R0276,11,moderate,True,,11,moderate,True,22,False
+R0277,9,mild,False,True,7,mild,True,12,False
+R0278,9,mild,False,True,7,mild,False,17,False
+R0279,14,moderate,False,True,9,mild,False,10,False
+R0280,10,moderate,False,True,9,mild,False,31,True
+R0281,9,mild,False,True,7,mild,False,30,False
+R0282,10,moderate,False,True,10,moderate,False,18,True
+R0283,9,mild,False,True,,,,29,True
+R0284,9,mild,False,True,7,mild,False,26,False
+R0285,10,moderate,False,True,7,mild,False,24,False
+R0286,12,moderate,False,True,8,mild,False,27,False
+R0287,30,,False,True,21,severe,False,8,False
+R0288,24,severe,False,True,18,severe,False,8,False
+R0289,18,moderately severe,False,True,11,moderate,False,18,False
+R0290,11,moderate,False,True,9,mild,False,14,False
+R0291,9,mild,False,True,7,mild,False,16,False
+R0292,11,moderate,True,True,,,,11,False
+R0293,13,moderate,False,True,9,mild,False,18,False
+R0294,11,moderate,False,True,10,moderate,False,19,False
+R0295,21,severe,False,True,12,moderate,True,5,False
+R0296,12,moderate,False,True,9,mild,False,29,False
+R0297,27,severe,False,True,18,severe,False,0,False
+R0298,12,moderate,False,True,9,mild,True,14,False
+R0299,18,moderately severe,False,True,8,mild,False,24,False
+R0300,27,severe,False,True,12,moderate,True,19,False
+R0301,10,moderate,False,True,9,mild,False,21,True
+R0302,9,mild,False,True,7,mild,False,25,False
+R0303,13,moderate,False,True,7,mild,False,9,False
+R0304,15,moderately severe,True,True,16,severe,False,11,False
+R0305,9,mild,False,True,8,mild,True,15,False
+R0306,10,moderate,False,True,9,mild,False,30,False
+R0307,9,mild,False,True,7,mild,False,17,True
+R0308,18,moderately severe,False,True,,,,9,False
+R0309,12,moderate,True,True,11,moderate,False,30,False
+R0310,10,moderate,False,True,7,mild,False,18,False
+R0311,9,mild,False,True,13,moderate,False,20,False
+R0312,9,mild,False,True,7,mild,False,,
+R0313,18,moderately severe,False,True,18,severe,False,7,False
+R0314,10,moderate,False,True,8,mild,False,25,False
+R0315,10,moderate,False,True,11,moderate,False,30,False
+R0316,27,severe,False,True,7,mild,False,18,False
+R0317,10,moderate,True,True,7,mild,False,4,False
+R0318,11,moderate,True,True,8,mild,False,28,False
+R0319,17,moderately severe,False,True,15,severe,True,23,False
+R0320,9,mild,False,True,7,mild,False,30,False
+R0321,9,mild,False,True,7,mild,True,,
+R0322,15,moderately severe,False,True,7,mild,False,15,False
+R0323,10,moderate,False,True,11,moderate,False,8,False
+R0324,,,,,8,mild,False,21,False
+R0325,14,moderate,False,True,7,mild,False,22,True
+R0326,21,severe,False,True,20,severe,False,18,False
+R0327,17,moderately severe,False,True,21,severe,False,12,False
+R0328,20,severe,False,True,18,severe,True,7,False
+R0329,12,moderate,False,True,8,mild,False,25,False
+R0330,11,moderate,True,True,7,mild,False,17,False
+R0331,9,mild,True,True,9,mild,False,30,False
+R0332,9,mild,False,True,7,mild,False,25,False
+R0333,11,moderate,True,True,8,mild,False,24,False
+R0334,10,moderate,False,True,7,mild,False,26,False
+R0335,17,moderately severe,False,True,12,moderate,False,20,False
+R0336,,,,True,8,mild,False,25,False
+R0337,10,moderate,False,True,7,mild,False,27,False
+R0338,9,mild,True,,7,mild,False,25,False
+R0339,18,moderately severe,False,True,15,severe,False,8,False
+R0340,12,moderate,True,True,11,moderate,False,14,False
+R0341,10,moderate,False,True,11,moderate,False,24,False
+R0342,9,mild,False,True,7,mild,False,10,True
+R0343,26,severe,False,True,21,severe,False,8,False
+R0344,9,mild,False,True,8,mild,False,28,True
+R0345,17,moderately severe,False,True,10,moderate,False,16,True
+R0346,13,moderate,False,True,9,mild,True,27,False
+R0347,10,moderate,False,True,7,mild,False,27,True
+R0348,9,mild,True,True,8,mild,False,27,False
+R0349,15,moderately severe,False,True,9,mild,False,11,False
+R0350,10,moderate,False,True,8,mild,False,21,False
+R0351,24,severe,False,True,16,severe,False,7,False
+R0352,9,mild,False,True,7,mild,True,28,False
+R0353,9,mild,False,True,12,moderate,False,21,True
+R0354,10,moderate,False,True,8,mild,False,23,False
+R0355,16,moderately severe,True,True,16,severe,False,24,False
+R0356,11,moderate,False,True,10,moderate,False,12,False
+R0357,9,mild,False,True,7,mild,False,27,False
+R0358,25,severe,False,True,8,mild,False,12,False
+R0359,14,moderate,False,True,19,severe,False,17,False
+R0360,9,mild,False,True,7,mild,False,27,False
+R0361,11,moderate,False,True,7,mild,False,20,False
+R0362,10,moderate,True,True,8,mild,False,25,False
+R0363,20,severe,False,True,16,severe,False,3,False
+R0364,11,moderate,False,True,8,mild,True,16,True
+R0365,9,mild,False,True,7,mild,True,27,False
+R0366,9,mild,True,True,7,mild,False,29,True
+R0367,9,mild,False,True,7,mild,False,30,False
+R0368,9,mild,False,True,9,mild,False,26,False
+R0369,26,severe,False,True,12,moderate,True,14,True
+R0370,10,moderate,True,True,22,,False,18,False
+R0371,9,mild,False,True,7,mild,False,27,False
+R0372,16,moderately severe,False,True,11,moderate,False,18,False
+R0373,9,mild,False,True,7,mild,False,23,False
+R0374,19,moderately severe,False,True,15,severe,False,18,False
+R0375,14,moderate,False,True,,,,12,False
+R0376,10,moderate,False,True,17,severe,False,25,False
+R0377,10,moderate,False,True,8,mild,False,5,False
+R0378,9,mild,False,True,15,severe,False,13,False
+R0379,13,moderate,False,True,11,moderate,False,27,False
+R0380,16,moderately severe,False,True,7,mild,False,18,False
+R0381,9,mild,False,True,7,mild,False,22,False
+R0382,12,moderate,True,True,11,moderate,False,14,False
+R0383,10,moderate,False,True,8,mild,False,18,False
+R0384,9,mild,False,True,7,mild,False,30,True
+R0385,11,moderate,False,True,8,mild,False,15,False
+R0386,10,moderate,False,True,8,mild,False,19,False
+R0387,34,,False,True,14,moderate,False,1,False
+R0388,19,moderately severe,True,True,8,mild,False,19,False
+R0389,10,moderate,False,True,16,severe,False,3,False
+R0390,9,mild,False,True,7,mild,False,28,False
+R0391,19,moderately severe,False,True,10,moderate,False,6,False
+R0392,26,severe,False,True,9,mild,False,18,False
+R0393,,,,True,15,severe,False,11,False
+R0394,9,mild,False,True,8,mild,False,11,False
+R0395,16,moderately severe,False,True,13,moderate,False,19,False
+R0396,19,moderately severe,True,,16,severe,False,8,False
+R0397,10,moderate,True,True,11,moderate,True,22,False
+R0398,9,mild,True,True,7,mild,False,27,True
+R0399,9,mild,False,True,7,mild,False,30,False
+R0400,26,severe,False,True,19,severe,True,20,False
+R0401,24,severe,True,,18,severe,False,5,False
+R0402,16,moderately severe,True,True,8,mild,True,14,False
+R0403,9,mild,False,True,15,severe,True,6,False
+R0404,12,moderate,False,True,8,mild,False,28,False
+R0405,17,moderately severe,True,True,7,mild,False,16,True
+R0406,29,,False,True,7,mild,False,5,False
+R0407,23,severe,True,True,21,severe,False,21,False
+R0408,9,mild,False,True,7,mild,True,26,True
+R0409,17,moderately severe,True,True,23,,False,16,False
+R0410,11,moderate,True,True,17,severe,False,19,False
+R0411,16,moderately severe,False,True,11,moderate,False,11,False
+R0412,17,moderately severe,True,True,7,mild,False,22,False
+R0413,12,moderate,False,True,8,mild,False,24,False
+R0414,9,mild,True,True,7,mild,False,30,False
+R0415,9,mild,False,True,,,,27,False
+R0416,19,moderately severe,False,True,7,mild,False,22,False
+R0417,11,moderate,False,True,8,mild,False,4,False
+R0418,9,mild,False,True,7,mild,True,26,True
+R0419,12,moderate,False,True,16,severe,True,9,False
+R0420,13,moderate,False,True,12,moderate,True,29,False
+R0421,9,mild,True,True,7,mild,False,20,False
+R0422,17,moderately severe,False,True,13,moderate,False,18,False
+R0423,12,moderate,False,True,17,severe,False,21,False
+R0424,9,mild,False,True,10,moderate,False,29,False
+R0425,14,moderate,True,True,8,mild,False,22,False
+R0426,9,mild,False,True,10,moderate,False,14,False
+R0427,9,mild,False,True,7,mild,False,16,False
+R0428,23,severe,False,True,20,severe,False,0,False
+R0429,14,moderate,False,True,8,mild,False,,
+R0430,12,moderate,False,True,17,severe,False,29,False
+R0431,13,moderate,False,True,7,mild,False,,
+R0432,29,,False,True,26,,False,6,False
+R0433,29,,False,True,12,moderate,False,5,False
+R0434,23,severe,True,True,11,moderate,False,10,True
+R0435,11,moderate,False,True,7,mild,False,29,True
+R0436,27,severe,False,True,24,,False,1,False
+R0437,33,,False,True,23,,False,2,True
+R0438,11,moderate,False,True,7,mild,False,21,True
+R0439,12,moderate,False,True,8,mild,True,27,True
+R0440,9,mild,False,True,7,mild,False,,
+R0441,15,moderately severe,False,True,9,mild,False,12,False
+R0442,19,moderately severe,False,True,24,,False,6,True
+R0443,9,mild,False,True,8,mild,False,11,False
+R0444,10,moderate,False,True,7,mild,False,16,True
+R0445,9,mild,False,True,7,mild,False,25,False
+R0446,9,mild,True,True,7,mild,False,30,False
+R0447,9,mild,True,True,7,mild,False,30,False
+R0448,11,moderate,False,True,8,mild,False,24,False
+R0449,25,severe,False,True,22,,False,24,False
+R0450,18,moderately severe,False,True,15,severe,False,20,False
+R0451,17,moderately severe,True,True,10,moderate,False,21,False
+R0452,10,moderate,True,True,12,moderate,False,28,False
+R0453,14,moderate,False,True,8,mild,False,17,False
+R0454,,,,True,13,moderate,True,15,False
+R0455,32,,False,True,24,,False,14,False
+R0456,9,mild,False,True,13,moderate,False,14,False
+R0457,10,moderate,False,True,7,mild,False,30,False
+R0458,11,moderate,False,True,7,mild,False,28,False
+R0459,10,moderate,False,True,15,severe,False,20,False
+R0460,9,mild,False,True,11,moderate,False,23,False
+R0461,9,mild,False,True,7,mild,False,11,False
+R0462,11,moderate,False,True,8,mild,False,5,False
+R0463,9,mild,True,True,7,mild,False,21,True
+R0464,14,moderate,False,True,17,severe,False,7,False
+R0465,19,moderately severe,False,True,7,mild,True,22,True
+R0466,9,mild,False,True,7,mild,True,29,False
+R0467,9,mild,False,True,7,mild,False,9,False
+R0468,15,moderately severe,False,True,9,mild,False,14,False
+R0469,12,moderate,False,True,9,mild,False,17,False
+R0470,9,mild,True,True,7,mild,False,26,False
+R0471,27,severe,True,True,9,mild,True,28,False
+R0472,10,moderate,False,True,7,mild,False,30,False
+R0473,9,mild,False,True,7,mild,False,30,False
+R0474,12,moderate,False,True,8,mild,False,20,False
+R0475,11,moderate,False,True,9,mild,False,26,False
+R0476,16,moderately severe,True,True,22,,False,22,False
+R0477,11,moderate,False,True,7,mild,True,25,False
+R0478,17,moderately severe,False,True,7,mild,False,,
+R0479,13,moderate,False,True,7,mild,False,22,True
+R0480,28,,False,True,27,,True,0,False
+R0481,20,severe,False,True,14,moderate,True,17,False
+R0482,,,,True,8,mild,False,27,True
+R0483,9,mild,False,True,7,mild,False,31,True
+R0484,13,moderate,False,True,15,severe,False,11,False
+R0485,10,moderate,False,True,11,moderate,False,14,False
+R0486,14,moderate,False,True,16,severe,False,28,False
+R0487,9,mild,False,True,7,mild,False,28,False
+R0488,13,moderate,False,True,13,moderate,False,6,False
+R0489,9,mild,True,True,7,mild,False,28,False
+R0490,24,severe,False,True,9,mild,False,1,True
+R0491,17,moderately severe,False,True,14,moderate,False,27,False
+R0492,29,,False,True,20,severe,False,5,False
+R0493,9,mild,False,True,7,mild,False,23,False
+R0494,9,mild,False,True,7,mild,True,27,False
+R0495,10,moderate,False,True,9,mild,False,21,False
+R0496,24,severe,False,True,9,mild,False,22,False
+R0497,11,moderate,False,True,9,mild,False,25,False
+R0498,18,moderately severe,True,True,9,mild,False,18,True
+R0499,9,mild,False,True,9,mild,False,11,False
+R0500,24,severe,False,True,,,,20,False
+R0501,19,moderately severe,False,True,12,moderate,False,15,False
+R0502,14,moderate,True,True,18,severe,True,30,False
+R0503,,,,True,,,,22,False
+R0504,36,,False,True,22,,False,22,True
+R0505,28,,False,True,7,mild,False,,
