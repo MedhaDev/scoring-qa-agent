@@ -1,0 +1,12 @@
+# Test harness
+pandas
+numpy
+pyyaml
+matplotlib
+
+# Agent (any OpenAI-compatible API, e.g. Gemini free tier)
+openai
+python-dotenv
+
+# Case study report
+quarto-cli
