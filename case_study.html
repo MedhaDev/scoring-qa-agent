@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Medha Sharma">
+<meta name="author" content="Medha Devalraj">
 <meta name="dcterms.date" content="2026-11-08">
 
 <title>Can an AI Agent Catch Silent Scoring Bugs?</title>
@@ -2175,7 +2175,7 @@ vertical-align: -.125em;
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Can an AI Agent Catch Silent Scoring Bugs?</h1>
-            <p class="subtitle lead">Evaluating a QA agent against a rule-based script on survey scoring pipelines with planted bugs</p>
+            <p class="subtitle lead">I built an AI agent from scratch to review survey scoring code, then tested it against a rule-based QA script on 22 pipelines with planted bugs</p>
                       </div>
   </div>
     
@@ -2185,7 +2185,7 @@ vertical-align: -.125em;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Medha Sharma </p>
+               <p>Medha Devalraj </p>
             </div>
     </div>
       
@@ -2206,12 +2206,17 @@ vertical-align: -.125em;
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#the-business-problem" id="toc-the-business-problem" class="nav-link active" data-scroll-target="#the-business-problem"><span class="header-section-number">1</span> The business problem</a></li>
+  <li><a href="#the-business-problem" id="toc-the-business-problem" class="nav-link active" data-scroll-target="#the-business-problem"><span class="header-section-number">1</span> The business problem</a>
+  <ul class="collapse">
+  <li><a href="#what-survey-scoring-is" id="toc-what-survey-scoring-is" class="nav-link" data-scroll-target="#what-survey-scoring-is"><span class="header-section-number">1.1</span> What survey scoring is</a></li>
+  <li><a href="#why-errors-go-unnoticed" id="toc-why-errors-go-unnoticed" class="nav-link" data-scroll-target="#why-errors-go-unnoticed"><span class="header-section-number">1.2</span> Why errors go unnoticed</a></li>
+  <li><a href="#why-i-built-this" id="toc-why-i-built-this" class="nav-link" data-scroll-target="#why-i-built-this"><span class="header-section-number">1.3</span> Why I built this</a></li>
+  </ul></li>
   <li><a href="#why-scripted-qa-misses-these-bugs" id="toc-why-scripted-qa-misses-these-bugs" class="nav-link" data-scroll-target="#why-scripted-qa-misses-these-bugs"><span class="header-section-number">2</span> Why scripted QA misses these bugs</a></li>
   <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach"><span class="header-section-number">3</span> Approach</a>
   <ul class="collapse">
   <li><a href="#what-the-agent-does" id="toc-what-the-agent-does" class="nav-link" data-scroll-target="#what-the-agent-does"><span class="header-section-number">3.1</span> What the agent does</a></li>
-  <li><a href="#how-it-is-built" id="toc-how-it-is-built" class="nav-link" data-scroll-target="#how-it-is-built"><span class="header-section-number">3.2</span> How it is built</a></li>
+  <li><a href="#how-i-built-it" id="toc-how-i-built-it" class="nav-link" data-scroll-target="#how-i-built-it"><span class="header-section-number">3.2</span> How I built it</a></li>
   <li><a href="#test-design" id="toc-test-design" class="nav-link" data-scroll-target="#test-design"><span class="header-section-number">3.3</span> Test design</a></li>
   </ul></li>
   <li><a href="#hypothesis-result" id="toc-hypothesis-result" class="nav-link" data-scroll-target="#hypothesis-result"><span class="header-section-number">4</span> Hypothesis result</a></li>
@@ -2253,7 +2258,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Survey scoring pipelines can be wrong without anyone noticing. I tested whether an AI agent can catch those errors by reading the scoring rules, re-scoring the data on its own, and investigating any mismatch, <strong>without ever seeing the pipeline’s code</strong>.</p>
+<p>Survey scoring pipelines can be wrong without anyone noticing. <strong>I built an AI agent from scratch</strong> that reviews them the way a careful data manager would: it reads the scoring rules, re-scores the data on its own, and investigates any mismatch, <strong>without ever seeing the pipeline’s code</strong>. I then built a test set with planted bugs to measure whether it works.</p>
 <p>On <strong>22 test pipelines</strong> (18 with a planted bug, 4 correct):</p>
 <ul>
 <li><strong>The agent detected all 18 bugs</strong> and named the right type of bug for 16.</li>
@@ -2266,7 +2271,20 @@ vertical-align: -.125em;
 </div>
 <section id="the-business-problem" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> The business problem</h1>
-<p>Multi-item questionnaires like the PHQ-9 (depression) are scored by code: add up the answers, flip the negatively worded items, handle skipped questions, and assign a severity label. When that code has a mistake, nothing crashes. The scores still look like normal scores, and they flow into analysis.</p>
+<section id="what-survey-scoring-is" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-survey-scoring-is"><span class="header-section-number">1.1</span> What survey scoring is</h2>
+<p>Health and social research often measures things like depression, anxiety or self-esteem with short questionnaires. Each question is answered on a small scale, for example 0 = “not at all” to 3 = “nearly every day”. <strong>Scoring</strong> turns a person’s answers into one number and a label that researchers can analyse:</p>
+<ol type="1">
+<li><strong>Add up the answers.</strong> Nine answers on the PHQ-9 depression questionnaire give a total from 0 to 27.</li>
+<li><strong>Flip the reversed questions.</strong> Some questions are worded the opposite way (“I feel good about myself” vs “I feel like a failure”), so their answers must be flipped before adding.</li>
+<li><strong>Handle skipped questions.</strong> Decide whether a total can still be calculated when someone leaves a question blank.</li>
+<li><strong>Assign a label.</strong> For example, a PHQ-9 total of 10 to 14 means “moderate” depression.</li>
+</ol>
+<p>In a study this is done by code, for thousands of people at once, often across several questionnaires and several rounds of data collection. A useful comparison is an exam grading script: if one answer in the key is wrong, every student’s grade is slightly off, yet nothing looks broken.</p>
+</section>
+<section id="why-errors-go-unnoticed" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-errors-go-unnoticed"><span class="header-section-number">1.2</span> Why errors go unnoticed</h2>
+<p>When scoring code has a mistake, nothing crashes. The scores still look like normal scores, and they flow into analysis.</p>
 <p>What a silent scoring error costs a research team:</p>
 <ul>
 <li><strong>Participants are misclassified.</strong> Someone who is moderately depressed is labelled “mild”, or a self-harm flag is never raised for follow-up.</li>
@@ -2274,8 +2292,13 @@ vertical-align: -.125em;
 <li><strong>Rework.</strong> When it is finally noticed, every analysis built on those scores has to be rerun, often across several waves of data.</li>
 <li><strong>Data manager time.</strong> Finding the cause of a mismatch by hand is slow, and manual QA usually means spot-checking a handful of rows, which misses errors that affect only a few participants.</li>
 </ul>
+</section>
+<section id="why-i-built-this" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="why-i-built-this"><span class="header-section-number">1.3</span> Why I built this</h2>
+<p>In research data management, scoring code is checked with automated QA scripts and manual spot checks. Both catch obvious breaks, but neither reliably catches a score that is plausible and wrong. I wanted to know whether an AI agent could act as an independent second reviewer: one that reads the same scoring manual a person would, re-derives the rules itself, and explains what went wrong in plain language.</p>
 <p><strong>Question:</strong> can an AI agent catch scoring errors that standard QA scripts miss, without seeing the code it is checking?</p>
 <p><strong>Hypothesis.</strong> An agent that reads a scoring spec, re-scores the raw data independently, and investigates mismatches will catch at least 90% of planted bugs with a false-alarm rate under 5%.</p>
+</section>
 </section>
 <section id="why-scripted-qa-misses-these-bugs" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Why scripted QA misses these bugs</h1>
@@ -2301,10 +2324,11 @@ vertical-align: -.125em;
 </ol>
 <p>This is the same principle as double data entry or double scoring, which research teams already trust: an independent second reader of the same rules.</p>
 </section>
-<section id="how-it-is-built" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="how-it-is-built"><span class="header-section-number">3.2</span> How it is built</h2>
+<section id="how-i-built-it" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="how-i-built-it"><span class="header-section-number">3.2</span> How I built it</h2>
+<p>I built the agent from scratch, without an agent framework, so every part of it is visible and explainable:</p>
 <ul>
-<li><strong>Language:</strong> plain Python, with no agent framework.</li>
+<li><strong>Language:</strong> plain Python.</li>
 <li><strong>Model:</strong> Gemini 3.5 Flash-Lite on Google’s free tier, reached through the standard OpenAI-compatible interface, so switching provider is a one-line change.</li>
 <li><strong>Tools:</strong> list files, read a file, run Python, and submit a report.</li>
 <li><strong>Guardrails:</strong> the agent works in a temporary folder containing only its three inputs; it has a 40-turn budget with a warning near the end; every step is logged and automatically checked for any attempt to look at pipeline code or the answer key (none found).</li>
