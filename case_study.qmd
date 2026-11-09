@@ -1,7 +1,7 @@
 ---
 title: "Can an AI Agent Catch Silent Scoring Bugs?"
-subtitle: "Evaluating a QA agent against a rule-based script on survey scoring pipelines with planted bugs"
-author: "Medha Sharma"
+subtitle: "I built an AI agent from scratch to review survey scoring code, then tested it against a rule-based QA script on 22 pipelines with planted bugs"
+author: "Medha Devalraj"
 date: "2026-11-08"
 format:
   html:
@@ -21,9 +21,11 @@ format:
 ::: {.callout-note appearance="simple" icon="false"}
 ## Summary
 
-Survey scoring pipelines can be wrong without anyone noticing. I tested whether an AI
-agent can catch those errors by reading the scoring rules, re-scoring the data on its
-own, and investigating any mismatch, **without ever seeing the pipeline's code**.
+Survey scoring pipelines can be wrong without anyone noticing. **I built an AI agent
+from scratch** that reviews them the way a careful data manager would: it reads the
+scoring rules, re-scores the data on its own, and investigates any mismatch, **without
+ever seeing the pipeline's code**. I then built a test set with planted bugs to measure
+whether it works.
 
 On **22 test pipelines** (18 with a planted bug, 4 correct):
 
@@ -41,10 +43,32 @@ domain.
 
 # The business problem
 
-Multi-item questionnaires like the PHQ-9 (depression) are scored by code: add up the
-answers, flip the negatively worded items, handle skipped questions, and assign a
-severity label. When that code has a mistake, nothing crashes. The scores still look
-like normal scores, and they flow into analysis.
+## What survey scoring is
+
+Health and social research often measures things like depression, anxiety or
+self-esteem with short questionnaires. Each question is answered on a small scale, for
+example 0 = "not at all" to 3 = "nearly every day". **Scoring** turns a person's answers
+into one number and a label that researchers can analyse:
+
+1. **Add up the answers.** Nine answers on the PHQ-9 depression questionnaire give a
+   total from 0 to 27.
+2. **Flip the reversed questions.** Some questions are worded the opposite way ("I feel
+   good about myself" vs "I feel like a failure"), so their answers must be flipped
+   before adding.
+3. **Handle skipped questions.** Decide whether a total can still be calculated when
+   someone leaves a question blank.
+4. **Assign a label.** For example, a PHQ-9 total of 10 to 14 means "moderate"
+   depression.
+
+In a study this is done by code, for thousands of people at once, often across several
+questionnaires and several rounds of data collection. A useful comparison is an exam
+grading script: if one answer in the key is wrong, every student's grade is slightly off,
+yet nothing looks broken.
+
+## Why errors go unnoticed
+
+When scoring code has a mistake, nothing crashes. The scores still look like normal
+scores, and they flow into analysis.
 
 What a silent scoring error costs a research team:
 
@@ -57,6 +81,14 @@ What a silent scoring error costs a research team:
 - **Data manager time.** Finding the cause of a mismatch by hand is slow, and manual QA
   usually means spot-checking a handful of rows, which misses errors that affect only a
   few participants.
+
+## Why I built this
+
+In research data management, scoring code is checked with automated QA scripts and
+manual spot checks. Both catch obvious breaks, but neither reliably catches a score that
+is plausible and wrong. I wanted to know whether an AI agent could act as an independent
+second reviewer: one that reads the same scoring manual a person would, re-derives the
+rules itself, and explains what went wrong in plain language.
 
 **Question:** can an AI agent catch scoring errors that standard QA scripts miss, without
 seeing the code it is checking?
@@ -119,9 +151,12 @@ code. It then:
 This is the same principle as double data entry or double scoring, which research teams
 already trust: an independent second reader of the same rules.
 
-## How it is built
+## How I built it
 
-- **Language:** plain Python, with no agent framework.
+I built the agent from scratch, without an agent framework, so every part of it is
+visible and explainable:
+
+- **Language:** plain Python.
 - **Model:** Gemini 3.5 Flash-Lite on Google's free tier, reached through the standard
   OpenAI-compatible interface, so switching provider is a one-line change.
 - **Tools:** list files, read a file, run Python, and submit a report.
