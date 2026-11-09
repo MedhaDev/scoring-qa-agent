@@ -9,7 +9,7 @@
 <meta name="author" content="Medha Devalraj">
 <meta name="dcterms.date" content="2026-11-08">
 
-<title>Can an AI Agent Catch Silent Scoring Bugs?</title>
+<title>An AI Agent for Data Pipeline Auditing: A Survey Scoring Case Study</title>
 <style>
 
 span.smallcaps{font-variant: small-caps;}
@@ -2174,8 +2174,8 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Can an AI Agent Catch Silent Scoring Bugs?</h1>
-            <p class="subtitle lead">I built an AI agent from scratch to review survey scoring code, then tested it against a rule-based QA script on 22 pipelines with planted bugs</p>
+      <h1 class="title">An AI Agent for Data Pipeline Auditing: A Survey Scoring Case Study</h1>
+            <p class="subtitle lead">Tested against a rule-based QA script on 22 survey scoring pipelines with planted bugs</p>
                       </div>
   </div>
     
@@ -2258,7 +2258,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Survey scoring pipelines can be wrong without anyone noticing. <strong>I built an AI agent from scratch</strong> that reviews them the way a careful data manager would: it reads the scoring rules, re-scores the data on its own, and investigates any mismatch, <strong>without ever seeing the pipeline’s code</strong>. I then built a test set with planted bugs to measure whether it works.</p>
+<p>Survey scoring pipelines can be wrong without anyone noticing. <strong>I designed and built an AI agent that audits survey scoring pipelines independently:</strong> it re-scores the data from the scoring manual and traces any mismatch to its cause, <strong>without ever seeing the pipeline’s code</strong>. I then built a test set with planted bugs to measure whether it works.</p>
 <p>On <strong>22 test pipelines</strong> (18 with a planted bug, 4 correct):</p>
 <ul>
 <li><strong>The agent detected all 18 bugs</strong> and named the right type of bug for 16.</li>
@@ -2326,7 +2326,7 @@ vertical-align: -.125em;
 </section>
 <section id="how-i-built-it" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="how-i-built-it"><span class="header-section-number">3.2</span> How I built it</h2>
-<p>I built the agent from scratch, without an agent framework, so every part of it is visible and explainable:</p>
+<p>I built the agent in plain Python without an agent framework, so every part of it is visible and explainable:</p>
 <ul>
 <li><strong>Language:</strong> plain Python.</li>
 <li><strong>Model:</strong> Gemini 3.5 Flash-Lite on Google’s free tier, reached through the standard OpenAI-compatible interface, so switching provider is a one-line change.</li>
