@@ -1,6 +1,6 @@
-# Can an AI Agent Catch Silent Scoring Bugs?
+# An AI Agent for Data Pipeline Auditing: A Survey Scoring Case Study
 
-I built an AI agent from scratch that reviews survey scoring code the way a careful data manager would, then tested it against a rule-based QA script on 22 scoring pipelines with planted bugs.
+I designed and built an AI agent that audits survey scoring pipelines independently: it re-scores the data from the scoring manual and traces any mismatch to its cause. I tested it against a rule-based QA script on 22 scoring pipelines with planted bugs.
 
 **Case study:** [read the full report](https://medhadev.github.io/scoring-qa-agent/case_study.html)
 
@@ -31,7 +31,7 @@ Before running anything, I expected the agent to catch at least 90% of planted b
 
 ## What I built
 
-- **The agent**, from scratch in plain Python with no agent framework. It gets only the scoring guides, the raw answers and the pipeline's output, never the code. It writes its own scorer, compares results column by column, forms a hypothesis about any mismatch, tests it by reproducing the pipeline's exact output, and writes a plain-English report. It runs on Gemini's free tier through a standard interface, so the model can be swapped in one line.
+- **The agent**, in plain Python with no agent framework. It gets only the scoring guides, the raw answers and the pipeline's output, never the code. It writes its own scorer, compares results column by column, forms a hypothesis about any mismatch, tests it by reproducing the pipeline's exact output, and writes a plain-English report. It runs on Gemini's free tier through a standard interface, so the model can be swapped in one line.
 - **A test set:** 505 synthetic respondents on three public-domain questionnaires (PHQ-9, GAD-7, Rosenberg Self-Esteem Scale), and 22 copies of a correct scoring pipeline: 18 with one planted bug each and 4 with none, under shuffled names with a hidden answer key. Each bug reproduces a real-world failure mode from research data management.
 - **A baseline:** a rule-based QA script running the checks teams typically automate.
 - **An evaluation** that grades both against the answer key.

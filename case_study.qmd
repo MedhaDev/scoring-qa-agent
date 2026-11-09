@@ -1,6 +1,6 @@
 ---
-title: "Can an AI Agent Catch Silent Scoring Bugs?"
-subtitle: "I built an AI agent from scratch to review survey scoring code, then tested it against a rule-based QA script on 22 pipelines with planted bugs"
+title: "An AI Agent for Data Pipeline Auditing: A Survey Scoring Case Study"
+subtitle: "Tested against a rule-based QA script on 22 survey scoring pipelines with planted bugs"
 author: "Medha Devalraj"
 date: "2026-11-08"
 format:
@@ -21,11 +21,11 @@ format:
 ::: {.callout-note appearance="simple" icon="false"}
 ## Summary
 
-Survey scoring pipelines can be wrong without anyone noticing. **I built an AI agent
-from scratch** that reviews them the way a careful data manager would: it reads the
-scoring rules, re-scores the data on its own, and investigates any mismatch, **without
-ever seeing the pipeline's code**. I then built a test set with planted bugs to measure
-whether it works.
+Survey scoring pipelines can be wrong without anyone noticing. **I designed and built
+an AI agent that audits survey scoring pipelines independently:** it re-scores the data
+from the scoring manual and traces any mismatch to its cause, **without ever seeing the
+pipeline's code**. I then built a test set with planted bugs to measure whether it
+works.
 
 On **22 test pipelines** (18 with a planted bug, 4 correct):
 
@@ -153,7 +153,7 @@ already trust: an independent second reader of the same rules.
 
 ## How I built it
 
-I built the agent from scratch, without an agent framework, so every part of it is
+I built the agent in plain Python without an agent framework, so every part of it is
 visible and explainable:
 
 - **Language:** plain Python.
